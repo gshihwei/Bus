@@ -90,10 +90,14 @@ def format_arrival_message(
     if not all_n1:
         lines += ["⚠️ 查無到站資料", "（請確認站名或路線是否正確）"]
     else:
-        # ── Step 1: Group all records by plate ────────────────────────────
+        # ── Step 1: Group all records by plate (this direction only) ────────
+        # The API may return both directions even when filtered; enforce here.
         from collections import defaultdict
+        direction_value = result.get("direction_value", 0)
         plate_recs: dict[str, list] = defaultdict(list)
         for rec in all_n1:
+            if rec.get("Direction") != direction_value:
+                continue
             plate = rec.get("PlateNumb", "-1")
             if plate and plate != "-1":
                 plate_recs[plate].append(rec)

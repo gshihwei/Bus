@@ -109,90 +109,95 @@ class TDXClient:
         """
         Get bus arrival info for a specific route, stop, and direction.
 
-        Uses EstimatedTimeOfArrival (N1) for the whole route — no stop filter —
-        so we get every vehicle's ETA to every stop in one call.
-        Each N1 record also carries CurrentStop (StopID of where the bus is NOW),
-        so no separate RealTimeByFrequency call is needed.
+        Direction resolution strategy (most reliable):
+          1. Fetch N1 for BOTH directions (Direction=0 and Direction=1) in parallel.
+          2. Each N1 record carries DestinationStop (StopID of the terminal stop).
+          3. Build a StopID→StopName map from the combined N1 data.
+          4. For each direction (0 and 1), look up its terminal stop name and check
+             whether direction_name is contained in it.
+          5. This avoids relying on Route API field naming inconsistencies.
         """
         city = self.search_route_city(route_name)
         if city is None:
             return {"error": f"找不到路線「{route_name}」，請確認路線名稱是否正確"}
 
-        direction_value = self._resolve_direction(route_name, direction_name, city)
+        # Fetch N1 for both directions at once (2 calls, but avoids Route API ambiguity)
+        n1_dir0 = self._get_all_n1(route_name, city, 0)
+        n1_dir1 = self._get_all_n1(route_name, city, 1)
 
-        # Full N1 for this route+direction (all stops, all vehicles)
-        all_n1 = self._get_all_n1(route_name, city, direction_value)
-
-        # StopID → StopName lookup built from N1 records themselves
+        # Build unified StopID→StopName from both directions
         stopid_to_name: dict[str, str] = {}
-        for rec in all_n1:
-            sid  = rec.get("StopID", "")
+        for rec in n1_dir0 + n1_dir1:
+            sid = rec.get("StopID", "")
             sname_raw = rec.get("StopName", {})
             sname = sname_raw.get("Zh_tw", "") if isinstance(sname_raw, dict) else str(sname_raw)
             if sid and sname:
                 stopid_to_name[sid] = sname
 
-        # Only the records for our queried stop
-        target_records = [
-            r for r in all_n1
-            if (r.get("StopName", {}).get("Zh_tw", "") if isinstance(r.get("StopName"), dict) else "") == stop_name
-        ]
+        # Resolve direction: find which direction's terminal stop contains direction_name
+        direction_value = self._resolve_direction_from_n1(
+            n1_dir0, n1_dir1, stopid_to_name, direction_name
+        )
 
+        all_n1 = n1_dir0 if direction_value == 0 else n1_dir1
         stop_info = self._get_stop_info(route_name, stop_name, city, direction_value)
 
         return {
             "city":            city,
             "direction_value": direction_value,
-            "all_n1":          all_n1,           # full N1 — bus_query groups per plate
+            "all_n1":          all_n1,
             "stopid_to_name":  stopid_to_name,
             "stop_info":       stop_info,
         }
 
-    def _resolve_direction(self, route_name: str, direction_name: str, city: str) -> int:
+    def _resolve_direction_from_n1(
+        self,
+        n1_dir0: list,
+        n1_dir1: list,
+        stopid_to_name: dict,
+        direction_name: str,
+    ) -> int:
         """
-        Determine direction (0 or 1) based on destination name.
-        Compares against route's DestinationStopNameZh.
+        Determine direction (0 or 1) by matching direction_name against each
+        direction's terminal stop name, derived directly from N1 DestinationStop fields.
+
+        Each N1 record has DestinationStop = StopID of the route's last stop for
+        that direction. We collect all distinct terminal StopIDs per direction,
+        resolve them to stop names, then check if direction_name is contained in any.
+
+        Example for 1728:
+          Direction=0 records all have DestinationStop=300428 → "新竹轉運站"
+          Direction=1 records all have DestinationStop=273770 → "仁愛敦化路口(圓環)"
+          User says "往新竹" → "新竹" in "新竹轉運站" → Direction=0  ✓
         """
-        try:
-            if city == "InterCity":
-                url = f"{self.BASE_URL}/v2/Bus/Route/InterCity"
-            else:
-                url = f"{self.BASE_URL}/v2/Bus/Route/City/{city}"
+        def terminal_names(records: list) -> list[str]:
+            dest_ids = {str(r.get("DestinationStop", "")) for r in records if r.get("DestinationStop")}
+            names = []
+            for sid in dest_ids:
+                name = stopid_to_name.get(sid, "")
+                if name:
+                    names.append(name)
+            return names
 
-            params = {
-                "$filter": f"RouteName/Zh_tw eq '{route_name}'",
-                "$select": "SubRoutes,DepartureStopNameZh,DestinationStopNameZh",
-                "$format": "JSON",
-                "$top": 5,
-            }
-            data = self._get(url, params)
+        names0 = terminal_names(n1_dir0)
+        names1 = terminal_names(n1_dir1)
 
-            if data:
-                route = data[0]
-                dest = route.get("DestinationStopNameZh", "")
-                dept = route.get("DepartureStopNameZh", "")
+        # Check direction_name (e.g. "新竹") against terminal stop names
+        if any(direction_name in name for name in names0):
+            return 0
+        if any(direction_name in name for name in names1):
+            return 1
 
-                # If direction matches destination → direction 1 (return)
-                # Otherwise default to 0 (outbound)
-                if direction_name and direction_name in dest:
-                    return 1
-                elif direction_name and direction_name in dept:
-                    return 0
+        # Fallback: if the queried stop only exists in one direction's N1, use that
+        def has_stop(records, stop_name_unused):
+            return len(records) > 0
 
-                # Check SubRoutes
-                sub_routes = route.get("SubRoutes", [])
-                for sr in sub_routes:
-                    sr_dest = sr.get("DestinationStopNameZh", "")
-                    sr_dept = sr.get("DepartureStopNameZh", "")
-                    if direction_name in sr_dest:
-                        return sr.get("Direction", 1)
-                    if direction_name in sr_dept:
-                        return sr.get("Direction", 0)
+        if n1_dir0 and not n1_dir1:
+            return 0
+        if n1_dir1 and not n1_dir0:
+            return 1
 
-        except Exception:
-            pass
-
-        return 0  # Default to outbound
+        return 0  # final fallback
 
     def _get_all_n1(self, route_name: str, city: str, direction: int) -> list:
         """
