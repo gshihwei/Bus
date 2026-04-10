@@ -1,0 +1,418 @@
+[
+  {
+    "PlateNumb": "056-FS",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172801",
+    "SubRouteID": "172801",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 0,
+    "BusPosition": {
+      "PositionLon": 121.53833,
+      "PositionLat": 25.0380883333333,
+      "GeoHash": "wsqqmwj92"
+    },
+    "Speed": 0,
+    "Azimuth": 272,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "MessageType": 1,
+    "GPSTime": "2026-04-10T12:03:41+08:00",
+    "SrcRecTime": "2026-04-10T12:03:42+08:00",
+    "SrcTransTime": "2026-04-10T12:03:42+08:00",
+    "UpdateTime": "2026-04-10T12:03:43+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2056",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "BusPosition": {
+      "PositionLon": 121.534915,
+      "PositionLat": 25.0250866666667,
+      "GeoHash": "wsqqmeej8"
+    },
+    "Speed": 0,
+    "Azimuth": 0,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "MessageType": 1,
+    "GPSTime": "2026-04-10T12:03:37+08:00",
+    "SrcRecTime": "2026-04-10T12:03:38+08:00",
+    "SrcTransTime": "2026-04-10T12:03:38+08:00",
+    "UpdateTime": "2026-04-10T12:03:43+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2058",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "BusPosition": {
+      "PositionLon": 120.97239,
+      "PositionLat": 24.8011516666667,
+      "GeoHash": "wsqj0fcmh"
+    },
+    "Speed": 0,
+    "Azimuth": 0,
+    "DutyStatus": 0,
+    "BusStatus": 0,
+    "MessageType": 1,
+    "GPSTime": "2026-04-10T12:03:42+08:00",
+    "SrcRecTime": "2026-04-10T12:03:42+08:00",
+    "SrcTransTime": "2026-04-10T12:03:42+08:00",
+    "UpdateTime": "2026-04-10T12:03:43+08:00"
+  },
+  {
+    "PlateNumb": "KKB-1715",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172801",
+    "SubRouteID": "172801",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 0,
+    "BusPosition": {
+      "PositionLon": 121.262403333333,
+      "PositionLat": 24.88794,
+      "GeoHash": "wsqjx6swf"
+    },
+    "Speed": 84,
+    "Azimuth": 208,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "MessageType": 1,
+    "GPSTime": "2026-04-10T12:03:36+08:00",
+    "SrcRecTime": "2026-04-10T12:03:37+08:00",
+    "SrcTransTime": "2026-04-10T12:03:37+08:00",
+    "UpdateTime": "2026-04-10T12:03:38+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2057",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "BusPosition": {
+      "PositionLon": 121.262853333333,
+      "PositionLat": 24.8884266666667,
+      "GeoHash": "wsqjx6uct"
+    },
+    "Speed": 85,
+    "Azimuth": 26,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "MessageType": 1,
+    "GPSTime": "2026-04-10T12:03:35+08:00",
+    "SrcRecTime": "2026-04-10T12:03:35+08:00",
+    "SrcTransTime": "2026-04-10T12:03:35+08:00",
+    "UpdateTime": "2026-04-10T12:03:38+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2670",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "BusPosition": {
+      "PositionLon": 121.53438,
+      "PositionLat": 25.02924,
+      "GeoHash": "wsqqms6tu"
+    },
+    "Speed": 0,
+    "Azimuth": 0,
+    "DutyStatus": 2,
+    "BusStatus": 0,
+    "MessageType": 1,
+    "GPSTime": "2026-04-10T12:03:35+08:00",
+    "SrcRecTime": "2026-04-10T12:03:35+08:00",
+    "SrcTransTime": "2026-04-10T12:03:35+08:00",
+    "UpdateTime": "2026-04-10T12:03:38+08:00"
+  },
+  {
+    "PlateNumb": "058-FS",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172801",
+    "SubRouteID": "172801",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 0,
+    "BusPosition": {
+      "PositionLon": 120.956126666667,
+      "PositionLat": 24.7967516666667,
+      "GeoHash": "wsqj06jed"
+    },
+    "Speed": 14,
+    "Azimuth": 0,
+    "DutyStatus": 0,
+    "BusStatus": 0,
+    "MessageType": 1,
+    "GPSTime": "2026-04-10T12:03:27+08:00",
+    "SrcRecTime": "2026-04-10T12:03:28+08:00",
+    "SrcTransTime": "2026-04-10T12:03:28+08:00",
+    "UpdateTime": "2026-04-10T12:03:33+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2059",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "BusPosition": {
+      "PositionLon": 120.973963333333,
+      "PositionLat": 24.802065,
+      "GeoHash": "wsqj0g4d9"
+    },
+    "Speed": 10,
+    "Azimuth": 66,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "MessageType": 1,
+    "GPSTime": "2026-04-10T12:03:31+08:00",
+    "SrcRecTime": "2026-04-10T12:03:31+08:00",
+    "SrcTransTime": "2026-04-10T12:03:31+08:00",
+    "UpdateTime": "2026-04-10T12:03:33+08:00"
+  },
+  {
+    "PlateNumb": "KKB-1692",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172801",
+    "SubRouteID": "172801",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 0,
+    "BusPosition": {
+      "PositionLon": 120.942953333333,
+      "PositionLat": 24.798755,
+      "GeoHash": "wsqj047zp"
+    },
+    "Speed": 0,
+    "Azimuth": 0,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "MessageType": 1,
+    "GPSTime": "2026-04-10T11:32:18+08:00",
+    "SrcRecTime": "2026-04-10T11:32:19+08:00",
+    "SrcTransTime": "2026-04-10T11:32:19+08:00",
+    "UpdateTime": "2026-04-10T11:32:23+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2035",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172801",
+    "SubRouteID": "172801",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 0,
+    "BusPosition": {
+      "PositionLon": 120.942961666667,
+      "PositionLat": 24.7986433333333,
+      "GeoHash": "wsqj047yx"
+    },
+    "Speed": 0,
+    "Azimuth": 0,
+    "DutyStatus": 0,
+    "BusStatus": 0,
+    "MessageType": 1,
+    "GPSTime": "2026-04-10T11:27:07+08:00",
+    "SrcRecTime": "2026-04-10T11:27:07+08:00",
+    "SrcTransTime": "2026-04-10T11:27:07+08:00",
+    "UpdateTime": "2026-04-10T11:27:08+08:00"
+  },
+  {
+    "PlateNumb": "KKB-1713",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172801",
+    "SubRouteID": "172801",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 0,
+    "BusPosition": {
+      "PositionLon": 120.983441666667,
+      "PositionLat": 24.86847,
+      "GeoHash": "wsqj3p1mq"
+    },
+    "Speed": 0,
+    "Azimuth": 0,
+    "DutyStatus": 0,
+    "BusStatus": 0,
+    "MessageType": 1,
+    "GPSTime": "2026-04-10T11:14:58+08:00",
+    "SrcRecTime": "2026-04-10T11:14:58+08:00",
+    "SrcTransTime": "2026-04-10T11:14:58+08:00",
+    "UpdateTime": "2026-04-10T11:15:03+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2055",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "BusPosition": {
+      "PositionLon": 121.558198333333,
+      "PositionLat": 25.0717066666667,
+      "GeoHash": "wsqqwh5vr"
+    },
+    "Speed": 0,
+    "Azimuth": 0,
+    "DutyStatus": 2,
+    "BusStatus": 0,
+    "MessageType": 1,
+    "GPSTime": "2026-04-10T10:48:52+08:00",
+    "SrcRecTime": "2026-04-10T10:48:53+08:00",
+    "SrcTransTime": "2026-04-10T10:48:53+08:00",
+    "UpdateTime": "2026-04-10T10:48:58+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2669",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172801",
+    "SubRouteID": "172801",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 0,
+    "BusPosition": {
+      "PositionLon": 121.558023333333,
+      "PositionLat": 25.07174,
+      "GeoHash": "wsqqwh5v7"
+    },
+    "Speed": 0,
+    "Azimuth": 0,
+    "DutyStatus": 0,
+    "BusStatus": 0,
+    "MessageType": 1,
+    "GPSTime": "2026-04-10T10:18:28+08:00",
+    "SrcRecTime": "2026-04-10T10:18:28+08:00",
+    "SrcTransTime": "2026-04-10T10:18:28+08:00",
+    "UpdateTime": "2026-04-10T10:18:33+08:00"
+  }
+]

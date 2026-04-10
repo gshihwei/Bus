@@ -141,11 +141,11 @@ class TDXClient:
         stop_info = self._get_stop_info(route_name, stop_name, city, direction_value)
 
         return {
-            "city":           city,
+            "city":            city,
             "direction_value": direction_value,
-            "target_records": target_records,
-            "stopid_to_name": stopid_to_name,
-            "stop_info":      stop_info,
+            "all_n1":          all_n1,           # full N1 — bus_query groups per plate
+            "stopid_to_name":  stopid_to_name,
+            "stop_info":       stop_info,
         }
 
     def _resolve_direction(self, route_name: str, direction_name: str, city: str) -> int:

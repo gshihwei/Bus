@@ -1,0 +1,352 @@
+[
+  {
+    "PlateNumb": "KKB-2059",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "StopUID": "THB273804",
+    "StopID": "273804",
+    "StopName": {
+      "Zh_tw": "公園站",
+      "En": "Gongyuan Station"
+    },
+    "StopSequence": 2,
+    "MessageType": 2,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "A2EventType": 1,
+    "GPSTime": "2026-04-10T12:05:53+08:00",
+    "TripStartTimeType": 0,
+    "TripStartTime": "2026-04-10T12:03:23+08:00",
+    "SrcRecTime": "2026-04-10T12:05:54+08:00",
+    "SrcTransTime": "2026-04-10T12:05:54+08:00",
+    "UpdateTime": "2026-04-10T12:05:58+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2056",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "StopUID": "THB273802",
+    "StopID": "273802",
+    "StopName": {
+      "Zh_tw": "金華新生路口",
+      "En": "Jinhua and Xinsheng Intersection"
+    },
+    "StopSequence": 19,
+    "MessageType": 2,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "A2EventType": 1,
+    "GPSTime": "2026-04-10T12:05:09+08:00",
+    "TripStartTimeType": 0,
+    "TripStartTime": "2026-04-10T10:02:28+08:00",
+    "SrcRecTime": "2026-04-10T12:05:10+08:00",
+    "SrcTransTime": "2026-04-10T12:05:10+08:00",
+    "UpdateTime": "2026-04-10T12:05:13+08:00"
+  },
+  {
+    "PlateNumb": "056-FS",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172801",
+    "SubRouteID": "172801",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 0,
+    "StopUID": "THB273788",
+    "StopID": "273788",
+    "StopName": {
+      "Zh_tw": "仁愛復興路口(福華飯店)",
+      "En": "Ren-ai Fuxing Road Intersectione(Howard Hotal)"
+    },
+    "StopSequence": 2,
+    "MessageType": 2,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "A2EventType": 0,
+    "GPSTime": "2026-04-10T12:01:13+08:00",
+    "TripStartTimeType": 0,
+    "TripStartTime": "2026-04-10T12:00:31+08:00",
+    "SrcRecTime": "2026-04-10T12:01:14+08:00",
+    "SrcTransTime": "2026-04-10T12:01:14+08:00",
+    "UpdateTime": "2026-04-10T12:01:18+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2057",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "StopUID": "THB310188",
+    "StopID": "310188",
+    "StopName": {
+      "Zh_tw": "龍潭運動公園",
+      "En": "Longtan Sport Park"
+    },
+    "StopSequence": 9,
+    "MessageType": 2,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "A2EventType": 0,
+    "GPSTime": "2026-04-10T11:56:28+08:00",
+    "TripStartTimeType": 0,
+    "TripStartTime": "2026-04-10T11:00:08+08:00",
+    "SrcRecTime": "2026-04-10T11:56:29+08:00",
+    "SrcTransTime": "2026-04-10T11:56:29+08:00",
+    "UpdateTime": "2026-04-10T11:56:33+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2058",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172801",
+    "SubRouteID": "172801",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 0,
+    "StopUID": "THB300428",
+    "StopID": "300428",
+    "StopName": {
+      "Zh_tw": "新竹轉運站",
+      "En": "Hsinchu bus station"
+    },
+    "StopSequence": 22,
+    "MessageType": 2,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "A2EventType": 1,
+    "GPSTime": "2026-04-10T11:52:08+08:00",
+    "TripStartTimeType": 0,
+    "TripStartTime": "2026-04-10T09:59:52+08:00",
+    "SrcRecTime": "2026-04-10T11:52:08+08:00",
+    "SrcTransTime": "2026-04-10T11:52:09+08:00",
+    "UpdateTime": "2026-04-10T11:52:13+08:00"
+  },
+  {
+    "PlateNumb": "KKB-1715",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172801",
+    "SubRouteID": "172801",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 0,
+    "StopUID": "THB273785",
+    "StopID": "273785",
+    "StopName": {
+      "Zh_tw": "中央新村(捷運小碧潭站)",
+      "En": "Zhongyang New Village( MRT Xiaobitan Sta. )"
+    },
+    "StopSequence": 13,
+    "MessageType": 2,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "A2EventType": 0,
+    "GPSTime": "2026-04-10T11:40:20+08:00",
+    "TripStartTimeType": 1,
+    "TripStartTime": "2026-04-10T10:59:50+08:00",
+    "SrcRecTime": "2026-04-10T11:40:22+08:00",
+    "SrcTransTime": "2026-04-10T11:40:22+08:00",
+    "UpdateTime": "2026-04-10T11:40:23+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2670",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "StopUID": "THB273777",
+    "StopID": "273777",
+    "StopName": {
+      "Zh_tw": "仁愛大安路口(仁愛醫院)",
+      "En": "Renai and Daan Road Intersection(Renai Hospital)"
+    },
+    "StopSequence": 24,
+    "MessageType": 2,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "A2EventType": 0,
+    "GPSTime": "2026-04-10T11:16:48+08:00",
+    "TripStartTimeType": 0,
+    "TripStartTime": "2026-04-10T09:04:44+08:00",
+    "SrcRecTime": "2026-04-10T11:16:48+08:00",
+    "SrcTransTime": "2026-04-10T11:16:48+08:00",
+    "UpdateTime": "2026-04-10T11:16:53+08:00"
+  },
+  {
+    "PlateNumb": "058-FS",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172801",
+    "SubRouteID": "172801",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 0,
+    "StopUID": "THB300428",
+    "StopID": "300428",
+    "StopName": {
+      "Zh_tw": "新竹轉運站",
+      "En": "Hsinchu bus station"
+    },
+    "StopSequence": 22,
+    "MessageType": 2,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "A2EventType": 1,
+    "GPSTime": "2026-04-10T11:08:31+08:00",
+    "TripStartTimeType": 1,
+    "TripStartTime": "2026-04-10T09:02:54+08:00",
+    "SrcRecTime": "2026-04-10T11:08:33+08:00",
+    "SrcTransTime": "2026-04-10T11:08:33+08:00",
+    "UpdateTime": "2026-04-10T11:08:38+08:00"
+  },
+  {
+    "PlateNumb": "KKB-1692",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172801",
+    "SubRouteID": "172801",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 0,
+    "StopUID": "THB300428",
+    "StopID": "300428",
+    "StopName": {
+      "Zh_tw": "新竹轉運站",
+      "En": "Hsinchu bus station"
+    },
+    "StopSequence": 22,
+    "MessageType": 2,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "A2EventType": 1,
+    "GPSTime": "2026-04-10T10:27:29+08:00",
+    "TripStartTimeType": 0,
+    "TripStartTime": "2026-04-10T08:01:27+08:00",
+    "SrcRecTime": "2026-04-10T10:27:31+08:00",
+    "SrcTransTime": "2026-04-10T10:27:31+08:00",
+    "UpdateTime": "2026-04-10T10:27:33+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2055",
+    "OperatorID": "44",
+    "OperatorNo": "0703",
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "StopUID": "THB273800",
+    "StopID": "273800",
+    "StopName": {
+      "Zh_tw": "臺大",
+      "En": "National Taiwan Universty"
+    },
+    "StopSequence": 17,
+    "MessageType": 2,
+    "DutyStatus": 1,
+    "BusStatus": 0,
+    "A2EventType": 0,
+    "GPSTime": "2026-04-10T10:11:49+08:00",
+    "TripStartTimeType": 0,
+    "TripStartTime": "2026-04-10T08:02:30+08:00",
+    "SrcRecTime": "2026-04-10T10:11:49+08:00",
+    "SrcTransTime": "2026-04-10T10:11:50+08:00",
+    "UpdateTime": "2026-04-10T10:11:53+08:00"
+  }
+]
