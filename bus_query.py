@@ -79,7 +79,14 @@ def format_arrival_message(
     buses     = result.get("buses", [])
     stop_info = result.get("stop_info")
     city      = result.get("city", "")
-    target_seq = stop_info.get("sequence") if stop_info else None
+
+    # ── 前置：建立「站名 → 排序位置」對照表 ──────────────────────────────
+    # stop_info["all_stops"] 是依 StopSequence 排序的完整站列表 [{seq, name}, ...]
+    # 用站名在此列表中的 index 做比較，避免跨 API 站序號不同源的問題
+    all_stops: list[dict] = (stop_info.get("all_stops") or []) if stop_info else []
+    # stop_name_to_rank: 站名 → 在路線中的順序位置（0-based）
+    stop_name_to_rank: dict[str, int] = {s["name"]: i for i, s in enumerate(all_stops)}
+    target_rank: int | None = stop_name_to_rank.get(stop_name)  # 目標站的排序位置
 
     # ── Step 1: seed vehicle_map from ETA API ─────────────────────────────
     vehicle_map: dict[str, dict] = {}
@@ -105,32 +112,44 @@ def format_arrival_message(
         plate      = bus.get("PlateNumb") or "-"
         raw_stop   = bus.get("StopName", {})
         cur_stop   = raw_stop.get("Zh_tw", "-") if isinstance(raw_stop, dict) else str(raw_stop)
-        bus_seq    = bus.get("StopSequence", 0)
 
         # Skip buses clearly not in service
         if bus_status in (2, 3, 4):
             continue
-        # Skip buses that have already passed target
-        if target_seq is not None and bus_seq > target_seq:
-            continue
 
-        stops_away = (target_seq - bus_seq) if target_seq is not None else None
+        # ── 用站名排序位置判斷是否已過目標站 ──────────────────────────────
+        # 優先用站名比較（不依賴跨 API 的站序號）
+        bus_rank = stop_name_to_rank.get(cur_stop)  # 車輛目前站的排序位置
+
+        if target_rank is not None and bus_rank is not None:
+            # 兩個站名都在路線表內 → 直接比較排序位置
+            if bus_rank > target_rank:
+                continue  # 已過目標站，略過
+            stops_away = target_rank - bus_rank
+        elif target_rank is not None and bus_rank is None:
+            # 車輛目前站名不在路線站表內（GPS 定位在站間、或站名略有差異）
+            # 退而使用原始站序號做粗略比對
+            bus_seq    = bus.get("StopSequence", 0)
+            target_seq = stop_info.get("sequence") if stop_info else None
+            if target_seq is not None and bus_seq > target_seq:
+                continue
+            stops_away = (target_seq - bus_seq) if target_seq is not None else None
+        else:
+            stops_away = None
 
         if plate in vehicle_map and vehicle_map[plate].get("source") == "api":
-            # Already have accurate ETA — just add current location detail
+            # 已有精確 ETA → 只補上目前站資訊
             vehicle_map[plate]["stop"]       = cur_stop
             vehicle_map[plate]["stops_away"] = stops_away
         else:
-            # ETA API didn't return data for this vehicle — estimate from position
-            eta_est = _estimate_eta_from_position(bus_seq, target_seq, city) if target_seq is not None else None
-            if eta_est is None and target_seq is not None:
-                continue   # passed the stop already
-
-            if eta_est is not None:
+            # ETA API 沒有這輛車 → 用站數差估算
+            if stops_away is not None:
+                eta_est = stops_away * (INTERCITY_SECS_PER_STOP if city == "InterCity" else CITY_SECS_PER_STOP)
                 emoji, label = _eta_label(eta_est)
-                label += "（估）"   # flag as estimated
+                label += "（估）"
             else:
-                emoji, label, eta_est = "🟡", "行駛中", 88888
+                eta_est = 88888
+                emoji, label = "🟡", "行駛中"
 
             vehicle_map[plate] = {
                 "plate":      plate,
