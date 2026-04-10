@@ -107,31 +107,45 @@ class TDXClient:
 
     def get_bus_arrival(self, route_name: str, stop_name: str, direction_name: str) -> Optional[dict]:
         """
-        Get bus arrival estimate for a specific route, stop, and direction.
-        Returns dict with arrival info or None if not found.
+        Get bus arrival info for a specific route, stop, and direction.
+
+        Uses EstimatedTimeOfArrival (N1) for the whole route — no stop filter —
+        so we get every vehicle's ETA to every stop in one call.
+        Each N1 record also carries CurrentStop (StopID of where the bus is NOW),
+        so no separate RealTimeByFrequency call is needed.
         """
         city = self.search_route_city(route_name)
         if city is None:
             return {"error": f"找不到路線「{route_name}」，請確認路線名稱是否正確"}
 
-        # Determine direction value (0=去程, 1=返程) based on direction_name
         direction_value = self._resolve_direction(route_name, direction_name, city)
 
-        # Get arrival estimates (EstimatedTimeOfArrival)
-        arrivals = self._get_arrivals(route_name, stop_name, city, direction_value)
+        # Full N1 for this route+direction (all stops, all vehicles)
+        all_n1 = self._get_all_n1(route_name, city, direction_value)
 
-        # Get real-time bus positions
-        buses = self._get_real_time_buses(route_name, city, direction_value)
+        # StopID → StopName lookup built from N1 records themselves
+        stopid_to_name: dict[str, str] = {}
+        for rec in all_n1:
+            sid  = rec.get("StopID", "")
+            sname_raw = rec.get("StopName", {})
+            sname = sname_raw.get("Zh_tw", "") if isinstance(sname_raw, dict) else str(sname_raw)
+            if sid and sname:
+                stopid_to_name[sid] = sname
 
-        # Get stop sequence info
+        # Only the records for our queried stop
+        target_records = [
+            r for r in all_n1
+            if (r.get("StopName", {}).get("Zh_tw", "") if isinstance(r.get("StopName"), dict) else "") == stop_name
+        ]
+
         stop_info = self._get_stop_info(route_name, stop_name, city, direction_value)
 
         return {
-            "city": city,
+            "city":           city,
             "direction_value": direction_value,
-            "arrivals": arrivals,
-            "buses": buses,
-            "stop_info": stop_info,
+            "target_records": target_records,
+            "stopid_to_name": stopid_to_name,
+            "stop_info":      stop_info,
         }
 
     def _resolve_direction(self, route_name: str, direction_name: str, city: str) -> int:
@@ -180,58 +194,31 @@ class TDXClient:
 
         return 0  # Default to outbound
 
-    def _get_arrivals(self, route_name: str, stop_name: str, city: str, direction: int) -> list:
-        """Get ETA data for the stop"""
+    def _get_all_n1(self, route_name: str, city: str, direction: int) -> list:
+        """
+        Fetch the full EstimatedTimeOfArrival (N1) for this route+direction.
+        Returns all records (every vehicle × every upcoming stop).
+        Each record has:
+          PlateNumb     – vehicle plate ("-1" if no vehicle assigned)
+          StopName      – upcoming stop name
+          StopSequence  – upcoming stop's sequence on the route
+          EstimateTime  – seconds until arrival at that stop (absent when StopStatus≠0)
+          StopStatus    – 0=normal, 1=not yet departed, 2=no service, 3=last bus passed
+          CurrentStop   – StopID of where this vehicle currently is (key field!)
+          Direction     – 0 outbound / 1 inbound
+        """
         try:
             if city == "InterCity":
                 url = f"{self.BASE_URL}/v2/Bus/EstimatedTimeOfArrival/InterCity/{route_name}"
-                params = {
-                    "$filter": f"StopName/Zh_tw eq '{stop_name}' and Direction eq {direction}",
-                    "$format": "JSON",
-                }
             else:
                 url = f"{self.BASE_URL}/v2/Bus/EstimatedTimeOfArrival/City/{city}/{route_name}"
-                params = {
-                    "$filter": f"StopName/Zh_tw eq '{stop_name}' and Direction eq {direction}",
-                    "$format": "JSON",
-                }
+            params = {
+                "$filter": f"Direction eq {direction}",
+                "$format": "JSON",
+            }
             return self._get(url, params) or []
         except Exception:
             return []
-
-    def _get_real_time_buses(self, route_name: str, city: str, direction: int) -> list:
-        """Get real-time bus positions (vehicle plates and current stop)"""
-        try:
-            if city == "InterCity":
-                url = f"{self.BASE_URL}/v2/Bus/RealTimeByFrequency/InterCity/{route_name}"
-                params = {
-                    "$filter": f"Direction eq {direction}",
-                    "$select": "PlateNumb,StopName,StopSequence,BusStatus,GPSTime",
-                    "$format": "JSON",
-                }
-            else:
-                url = f"{self.BASE_URL}/v2/Bus/RealTimeByFrequency/City/{city}/{route_name}"
-                params = {
-                    "$filter": f"Direction eq {direction}",
-                    "$select": "PlateNumb,StopName,StopSequence,BusStatus,GPSTime",
-                    "$format": "JSON",
-                }
-            return self._get(url, params) or []
-        except Exception:
-            # Try RealTimeNearStop
-            try:
-                if city == "InterCity":
-                    url = f"{self.BASE_URL}/v2/Bus/RealTimeNearStop/InterCity/{route_name}"
-                else:
-                    url = f"{self.BASE_URL}/v2/Bus/RealTimeNearStop/City/{city}/{route_name}"
-                params = {
-                    "$filter": f"Direction eq {direction}",
-                    "$select": "PlateNumb,StopName,StopSequence,BusStatus",
-                    "$format": "JSON",
-                }
-                return self._get(url, params) or []
-            except Exception:
-                return []
 
     def _get_stop_info(self, route_name: str, stop_name: str, city: str, direction: int) -> Optional[dict]:
         """
