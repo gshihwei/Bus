@@ -234,7 +234,10 @@ class TDXClient:
                 return []
 
     def _get_stop_info(self, route_name: str, stop_name: str, city: str, direction: int) -> Optional[dict]:
-        """Get stop sequence info"""
+        """
+        Get stop sequence info AND the full ordered stop list for ETA estimation.
+        Returns dict with target stop's sequence, total stops, and all stops in order.
+        """
         try:
             if city == "InterCity":
                 url = f"{self.BASE_URL}/v2/Bus/StopOfRoute/InterCity/{route_name}"
@@ -249,12 +252,24 @@ class TDXClient:
 
             if data:
                 stops = data[0].get("Stops", [])
+                # Build ordered list: [{seq, name}, ...]
+                ordered = []
+                target_seq = None
                 for stop in stops:
-                    if stop.get("StopName", {}).get("Zh_tw", "") == stop_name:
-                        return {
-                            "sequence": stop.get("StopSequence", 0),
-                            "total": len(stops),
-                        }
+                    seq = stop.get("StopSequence", 0)
+                    name = stop.get("StopName", {}).get("Zh_tw", "")
+                    ordered.append({"seq": seq, "name": name})
+                    if name == stop_name:
+                        target_seq = seq
+
+                ordered.sort(key=lambda x: x["seq"])
+
+                if target_seq is not None:
+                    return {
+                        "sequence": target_seq,
+                        "total": len(stops),
+                        "all_stops": ordered,  # full ordered stop list
+                    }
         except Exception:
             pass
         return None
