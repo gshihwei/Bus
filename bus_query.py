@@ -113,49 +113,97 @@ def format_arrival_message(
                     global_status = s
                 break
 
-        # ── Step 3: For each real plate, find ETA to target stop ──────────
+        # ── Step 3: Build stop_name→seq map for fallback estimation ──────
+        stop_to_seq: dict[str, int] = {}
+        for rec in all_n1:
+            if rec.get("Direction") != direction_value:
+                continue
+            sname = rec.get("StopName", {}).get("Zh_tw", "") if isinstance(rec.get("StopName"), dict) else ""
+            seq   = rec.get("StopSequence")
+            if sname and seq is not None:
+                stop_to_seq[sname] = int(seq)
+        target_seq_num: int | None = stop_to_seq.get(stop_name)
+
+        # ── Step 4: For each real plate, find ETA to target stop ──────────
         vehicles = []
 
         for plate, recs in plate_recs.items():
-            # Filter stale records (GPS data from a previous trip)
-            fresh = [
-                r for r in recs
-                if (_data_age_seconds(r.get("DataTime", "")) or 0) < STALE_THRESHOLD_SEC
-            ]
+            fresh = [r for r in recs if (_data_age_seconds(r.get("DataTime", "")) or 0) < STALE_THRESHOLD_SEC]
             if not fresh:
-                continue  # All records for this plate are stale → skip
+                continue
 
-            # Find the record for our target stop
+            # Try direct ETA record first
             target_rec = next(
                 (r for r in fresh
                  if (r.get("StopName", {}).get("Zh_tw", "") if isinstance(r.get("StopName"), dict) else "") == stop_name),
                 None
             )
 
-            if target_rec is None:
-                # Vehicle has no upcoming record for this stop →
-                # either already passed it, or it's beyond the last stop in N1.
+            if target_rec is not None:
+                eta_sec     = target_rec.get("EstimateTime")
+                status      = target_rec.get("StopStatus", 0)
+                current_sid = str(target_rec.get("CurrentStop", ""))
+                current_stop_name = stopid_to_name.get(current_sid, "")
+                if status == 3:
+                    vehicles.append({"plate": plate, "eta": 99999, "emoji": "⚫", "label": "末班車已過", "current_stop": current_stop_name})
+                elif status == 1 and eta_sec is None:
+                    pass  # unassigned slot
+                elif status in (2, 4):
+                    vehicles.append({"plate": plate, "eta": 99997, "emoji": "⛔", "label": BUS_STATUS.get(status, ""), "current_stop": current_stop_name})
+                elif eta_sec is not None:
+                    emoji, label = _eta_label(int(eta_sec))
+                    vehicles.append({"plate": plate, "eta": int(eta_sec), "emoji": emoji, "label": label, "current_stop": current_stop_name})
+                continue  # handled (or skipped)
+
+            # ── Fallback: N1 didn't include the target stop for this vehicle ──
+            # This happens when the vehicle is far away and TDX only returns
+            # the next few upcoming stops. Estimate from the closest known record.
+            if target_seq_num is None:
                 continue
 
-            eta_sec     = target_rec.get("EstimateTime")
-            status      = target_rec.get("StopStatus", 0)
-            current_sid = str(target_rec.get("CurrentStop", ""))
+            # Map each fresh record to its stop sequence number
+            seqed = []
+            for r in fresh:
+                sname_r = r.get("StopName", {}).get("Zh_tw", "") if isinstance(r.get("StopName"), dict) else ""
+                seq_r = stop_to_seq.get(sname_r)
+                if seq_r is not None:
+                    seqed.append((seq_r, r))
+            if not seqed:
+                continue
+
+            max_seq, max_rec = max(seqed, key=lambda x: x[0])
+            if max_seq >= target_seq_num:
+                continue  # Vehicle has already passed the target stop
+
+            # Estimate per-stop travel time from vehicle's own ETA intervals
+            seqed_sorted = sorted(seqed, key=lambda x: x[0])
+            per_stop_sec = 180.0  # intercity default
+            if len(seqed_sorted) >= 2:
+                gaps = []
+                for i in range(1, len(seqed_sorted)):
+                    s_a, r_a = seqed_sorted[i-1]
+                    s_b, r_b = seqed_sorted[i]
+                    e_a = r_a.get("EstimateTime")
+                    e_b = r_b.get("EstimateTime")
+                    if e_a is not None and e_b is not None and s_b > s_a:
+                        gaps.append((e_b - e_a) / (s_b - s_a))
+                if gaps:
+                    per_stop_sec = sum(gaps) / len(gaps)
+
+            base_eta = max_rec.get("EstimateTime")
+            if base_eta is None:
+                continue
+
+            estimated_eta = int(base_eta + (target_seq_num - max_seq) * per_stop_sec)
+            current_sid   = str(max_rec.get("CurrentStop", ""))
             current_stop_name = stopid_to_name.get(current_sid, "")
+            emoji, label = _eta_label(estimated_eta)
+            vehicles.append({
+                "plate": plate, "eta": estimated_eta,
+                "emoji": emoji, "label": label + "（估）",
+                "current_stop": current_stop_name,
+            })
 
-            if status == 3:
-                vehicles.append({"plate": plate, "eta": 99999, "emoji": "⚫", "label": "末班車已過",           "current_stop": current_stop_name})
-            elif status == 1 and eta_sec is None:
-                # Slot not yet assigned to a vehicle for this stop
-                continue
-            elif status in (2, 4):
-                vehicles.append({"plate": plate, "eta": 99997, "emoji": "⛔", "label": BUS_STATUS.get(status, ""), "current_stop": current_stop_name})
-            elif eta_sec is not None:
-                emoji, label = _eta_label(int(eta_sec))
-                vehicles.append({
-                    "plate": plate, "eta": int(eta_sec),
-                    "emoji": emoji, "label": label,
-                    "current_stop": current_stop_name,
-                })
 
         vehicles.sort(key=lambda v: v["eta"])
         active = [v for v in vehicles if v["eta"] < 90000]
@@ -178,5 +226,21 @@ def format_arrival_message(
                 if i < len(active[:4]):
                     lines.append("")
 
-    lines += ["", "━━━━━━━━━━━━━━", f"📡 {CITY_DISPLAY.get(city, city)} ｜ 資料：TDX"]
+    # Extract UpdateTime from the first N1 record that has it
+    import datetime as _dt
+    update_time_str = ""
+    for rec in all_n1:
+        raw = rec.get("UpdateTime", "")
+        if raw:
+            try:
+                dt = _dt.datetime.fromisoformat(raw)
+                update_time_str = dt.strftime("%H:%M")
+            except Exception:
+                update_time_str = raw[11:16] if len(raw) >= 16 else raw
+            break
+
+    footer = f"📡 {CITY_DISPLAY.get(city, city)} ｜ 資料：TDX"
+    if update_time_str:
+        footer += f"\n🕑 資料更新：{update_time_str}"
+    lines += ["", "━━━━━━━━━━━━━━", footer]
     return TextMessage(text="\n".join(lines))

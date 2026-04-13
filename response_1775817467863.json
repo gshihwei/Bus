@@ -1,6 +1,6 @@
 [
   {
-    "PlateNumb": "-1",
+    "PlateNumb": "KKB-1692",
     "StopUID": "THB139124",
     "StopID": "139124",
     "StopName": {
@@ -20,19 +20,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "StopCountDown": 0,
-    "CurrentStop": "-1",
+    "EstimateTime": 1133,
+    "StopCountDown": 7,
+    "CurrentStop": "273788",
     "DestinationStop": "300428",
     "StopSequence": 9,
-    "StopStatus": 1,
+    "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "056-FS",
+    "PlateNumb": "KKB-1692",
     "StopUID": "THB139125",
     "StopID": "139125",
     "StopName": {
@@ -52,20 +53,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 59,
-    "StopCountDown": 1,
-    "CurrentStop": "139124",
+    "EstimateTime": 1325,
+    "StopCountDown": 8,
+    "CurrentStop": "273788",
     "DestinationStop": "300428",
     "StopSequence": 10,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:23:40+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-1713",
     "StopUID": "THB139186",
     "StopID": "139186",
     "StopName": {
@@ -85,7 +86,7 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 878,
+    "EstimateTime": 1054,
     "StopCountDown": 4,
     "CurrentStop": "310188",
     "DestinationStop": "273770",
@@ -93,12 +94,12 @@
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:30:48+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-2670",
     "StopUID": "THB139187",
     "StopID": "139187",
     "StopName": {
@@ -118,17 +119,17 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1099,
-    "StopCountDown": 5,
-    "CurrentStop": "310188",
+    "EstimateTime": 119,
+    "StopCountDown": 1,
+    "CurrentStop": "139186",
     "DestinationStop": "273770",
     "StopSequence": 14,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:08+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
     "PlateNumb": "KKB-1715",
@@ -151,20 +152,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 1729,
-    "StopCountDown": 3,
-    "CurrentStop": "310188",
+    "EstimateTime": 2376,
+    "StopCountDown": 4,
+    "CurrentStop": "273768",
     "DestinationStop": "300428",
     "StopSequence": 18,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:40+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:34:48+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-2670",
     "StopUID": "THB254217",
     "StopID": "254217",
     "StopName": {
@@ -184,20 +185,20 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1238,
-    "StopCountDown": 6,
-    "CurrentStop": "310188",
+    "EstimateTime": 311,
+    "StopCountDown": 2,
+    "CurrentStop": "139186",
     "DestinationStop": "273770",
     "StopSequence": 15,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:08+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-2670",
     "StopUID": "THB257528",
     "StopID": "257528",
     "StopName": {
@@ -217,17 +218,17 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1352,
-    "StopCountDown": 7,
-    "CurrentStop": "310188",
+    "EstimateTime": 448,
+    "StopCountDown": 3,
+    "CurrentStop": "139186",
     "DestinationStop": "273770",
     "StopSequence": 16,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:08+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -257,12 +258,12 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:37:12+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "-1",
+    "PlateNumb": "KKB-1692",
     "StopUID": "THB273764",
     "StopID": "273764",
     "StopName": {
@@ -282,19 +283,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "StopCountDown": 0,
-    "CurrentStop": "-1",
+    "EstimateTime": 362,
+    "StopCountDown": 2,
+    "CurrentStop": "273788",
     "DestinationStop": "300428",
     "StopSequence": 4,
-    "StopStatus": 1,
+    "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-1713",
     "StopUID": "THB273765",
     "StopID": "273765",
     "StopName": {
@@ -314,7 +316,7 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 685,
+    "EstimateTime": 867,
     "StopCountDown": 3,
     "CurrentStop": "310188",
     "DestinationStop": "273770",
@@ -322,12 +324,12 @@
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:30:48+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "056-FS",
+    "PlateNumb": "KKB-2055",
     "StopUID": "THB273768",
     "StopID": "273768",
     "StopName": {
@@ -347,20 +349,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 2925,
-    "StopCountDown": 5,
-    "CurrentStop": "139124",
+    "EstimateTime": 1370,
+    "StopCountDown": 1,
+    "CurrentStop": "273785",
     "DestinationStop": "300428",
     "StopSequence": 14,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:21:52+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2059",
+    "PlateNumb": "KKB-2669",
     "StopUID": "THB273768",
     "StopID": "273768",
     "StopName": {
@@ -380,17 +382,17 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 2033,
-    "StopCountDown": 2,
-    "CurrentStop": "273794",
+    "EstimateTime": 501,
+    "StopCountDown": 1,
+    "CurrentStop": "273769",
     "DestinationStop": "273770",
     "StopSequence": 8,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:21:43+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
     "PlateNumb": "KKB-1715",
@@ -413,20 +415,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 1221,
-    "StopCountDown": 1,
-    "CurrentStop": "310188",
+    "EstimateTime": 1841,
+    "StopCountDown": 2,
+    "CurrentStop": "273768",
     "DestinationStop": "300428",
     "StopSequence": 16,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:40+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:34:48+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2059",
+    "PlateNumb": "-1",
     "StopUID": "THB273769",
     "StopID": "273769",
     "StopName": {
@@ -446,20 +448,19 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 59,
-    "StopCountDown": 1,
-    "CurrentStop": "273794",
+    "StopCountDown": 0,
+    "CurrentStop": "-1",
     "DestinationStop": "273770",
     "StopSequence": 7,
-    "StopStatus": 0,
+    "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:23:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:37:12+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-2670",
     "StopUID": "THB273770",
     "StopID": "273770",
     "StopName": {
@@ -479,20 +480,20 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 2385,
-    "StopCountDown": 16,
-    "CurrentStop": "310188",
+    "EstimateTime": 1417,
+    "StopCountDown": 12,
+    "CurrentStop": "139186",
     "DestinationStop": "273770",
     "StopSequence": 25,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:08+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-1713",
     "StopUID": "THB273775",
     "StopID": "273775",
     "StopName": {
@@ -512,7 +513,7 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 133,
+    "EstimateTime": 59,
     "StopCountDown": 1,
     "CurrentStop": "310188",
     "DestinationStop": "273770",
@@ -520,12 +521,12 @@
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:32:49+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "056-FS",
+    "PlateNumb": "KKB-1692",
     "StopUID": "THB273776",
     "StopID": "273776",
     "StopName": {
@@ -545,20 +546,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 376,
-    "StopCountDown": 2,
-    "CurrentStop": "139124",
+    "EstimateTime": 1580,
+    "StopCountDown": 9,
+    "CurrentStop": "273788",
     "DestinationStop": "300428",
     "StopSequence": 11,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:21:52+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-2670",
     "StopUID": "THB273777",
     "StopID": "273777",
     "StopName": {
@@ -578,20 +579,20 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 2318,
-    "StopCountDown": 15,
-    "CurrentStop": "310188",
+    "EstimateTime": 1360,
+    "StopCountDown": 11,
+    "CurrentStop": "139186",
     "DestinationStop": "273770",
     "StopSequence": 24,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:08+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "056-FS",
+    "PlateNumb": "KKB-2056",
     "StopUID": "THB273785",
     "StopID": "273785",
     "StopName": {
@@ -611,20 +612,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 989,
-    "StopCountDown": 4,
-    "CurrentStop": "139124",
+    "EstimateTime": 581,
+    "StopCountDown": 2,
+    "CurrentStop": "273776",
     "DestinationStop": "300428",
     "StopSequence": 13,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:21:52+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-2670",
     "StopUID": "THB273787",
     "StopID": "273787",
     "StopName": {
@@ -644,17 +645,17 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 2144,
-    "StopCountDown": 13,
-    "CurrentStop": "310188",
+    "EstimateTime": 1205,
+    "StopCountDown": 9,
+    "CurrentStop": "139186",
     "DestinationStop": "273770",
     "StopSequence": 22,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:08+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -684,9 +685,9 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:37:12+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -716,9 +717,9 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:37:12+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
     "PlateNumb": "KKB-1715",
@@ -741,17 +742,17 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 1815,
-    "StopCountDown": 4,
-    "CurrentStop": "310188",
+    "EstimateTime": 2487,
+    "StopCountDown": 5,
+    "CurrentStop": "273768",
     "DestinationStop": "300428",
     "StopSequence": 19,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:40+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:34:48+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -781,9 +782,9 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:37:12+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
     "PlateNumb": "KKB-1715",
@@ -806,20 +807,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 1570,
-    "StopCountDown": 2,
-    "CurrentStop": "310188",
+    "EstimateTime": 2190,
+    "StopCountDown": 3,
+    "CurrentStop": "273768",
     "DestinationStop": "300428",
     "StopSequence": 17,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:40+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:34:48+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-2670",
     "StopUID": "THB273798",
     "StopID": "273798",
     "StopName": {
@@ -839,20 +840,20 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 2224,
-    "StopCountDown": 14,
-    "CurrentStop": "310188",
+    "EstimateTime": 1251,
+    "StopCountDown": 10,
+    "CurrentStop": "139186",
     "DestinationStop": "273770",
     "StopSequence": 23,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:08+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "-1",
+    "PlateNumb": "KKB-1692",
     "StopUID": "THB273799",
     "StopID": "273799",
     "StopName": {
@@ -872,19 +873,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "StopCountDown": 0,
-    "CurrentStop": "-1",
+    "EstimateTime": 439,
+    "StopCountDown": 3,
+    "CurrentStop": "273788",
     "DestinationStop": "300428",
     "StopSequence": 5,
-    "StopStatus": 1,
+    "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-2670",
     "StopUID": "THB273800",
     "StopID": "273800",
     "StopName": {
@@ -904,20 +906,20 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1581,
-    "StopCountDown": 8,
-    "CurrentStop": "310188",
+    "EstimateTime": 633,
+    "StopCountDown": 4,
+    "CurrentStop": "139186",
     "DestinationStop": "273770",
     "StopSequence": 17,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:08+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-2670",
     "StopUID": "THB273801",
     "StopID": "273801",
     "StopName": {
@@ -937,20 +939,20 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 2083,
-    "StopCountDown": 12,
-    "CurrentStop": "310188",
+    "EstimateTime": 1158,
+    "StopCountDown": 8,
+    "CurrentStop": "139186",
     "DestinationStop": "273770",
     "StopSequence": 21,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:08+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-2670",
     "StopUID": "THB273802",
     "StopID": "273802",
     "StopName": {
@@ -970,17 +972,17 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1859,
-    "StopCountDown": 10,
-    "CurrentStop": "310188",
+    "EstimateTime": 920,
+    "StopCountDown": 6,
+    "CurrentStop": "139186",
     "DestinationStop": "273770",
     "StopSequence": 19,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:08+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -1010,12 +1012,12 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:37:12+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-1715",
+    "PlateNumb": "KKB-2058",
     "StopUID": "THB273805",
     "StopID": "273805",
     "StopName": {
@@ -1035,20 +1037,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 2095,
-    "StopCountDown": 6,
-    "CurrentStop": "310188",
+    "EstimateTime": 268,
+    "StopCountDown": 2,
+    "CurrentStop": "273793",
     "DestinationStop": "300428",
     "StopSequence": 21,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:40+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "-1",
+    "PlateNumb": "KKB-1692",
     "StopUID": "THB284129",
     "StopID": "284129",
     "StopName": {
@@ -1068,19 +1070,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "StopCountDown": 0,
-    "CurrentStop": "-1",
+    "EstimateTime": 843,
+    "StopCountDown": 5,
+    "CurrentStop": "273788",
     "DestinationStop": "300428",
     "StopSequence": 7,
-    "StopStatus": 1,
+    "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "-1",
+    "PlateNumb": "KKB-1692",
     "StopUID": "THB284379",
     "StopID": "284379",
     "StopName": {
@@ -1100,19 +1103,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "StopCountDown": 0,
-    "CurrentStop": "-1",
+    "EstimateTime": 1016,
+    "StopCountDown": 6,
+    "CurrentStop": "273788",
     "DestinationStop": "300428",
     "StopSequence": 8,
-    "StopStatus": 1,
+    "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-2670",
     "StopUID": "THB285644",
     "StopID": "285644",
     "StopName": {
@@ -1132,20 +1136,20 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1922,
-    "StopCountDown": 11,
-    "CurrentStop": "310188",
+    "EstimateTime": 973,
+    "StopCountDown": 7,
+    "CurrentStop": "139186",
     "DestinationStop": "273770",
     "StopSequence": 20,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:08+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "-1",
+    "PlateNumb": "KKB-1692",
     "StopUID": "THB286178",
     "StopID": "286178",
     "StopName": {
@@ -1165,19 +1169,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "StopCountDown": 0,
-    "CurrentStop": "-1",
+    "EstimateTime": 300,
+    "StopCountDown": 1,
+    "CurrentStop": "273788",
     "DestinationStop": "300428",
     "StopSequence": 3,
-    "StopStatus": 1,
+    "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "-1",
+    "PlateNumb": "KKB-1692",
     "StopUID": "THB286180",
     "StopID": "286180",
     "StopName": {
@@ -1197,19 +1202,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "StopCountDown": 0,
-    "CurrentStop": "-1",
+    "EstimateTime": 677,
+    "StopCountDown": 4,
+    "CurrentStop": "273788",
     "DestinationStop": "300428",
     "StopSequence": 6,
-    "StopStatus": 1,
+    "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-1715",
+    "PlateNumb": "KKB-2058",
     "StopUID": "THB300425",
     "StopID": "300425",
     "StopName": {
@@ -1229,17 +1235,17 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 1944,
-    "StopCountDown": 5,
-    "CurrentStop": "310188",
+    "EstimateTime": 61,
+    "StopCountDown": 1,
+    "CurrentStop": "273793",
     "DestinationStop": "300428",
     "StopSequence": 20,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:40+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -1269,12 +1275,12 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:37:12+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-1715",
+    "PlateNumb": "KKB-2058",
     "StopUID": "THB300428",
     "StopID": "300428",
     "StopName": {
@@ -1294,17 +1300,17 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 2255,
-    "StopCountDown": 7,
-    "CurrentStop": "310188",
+    "EstimateTime": 459,
+    "StopCountDown": 3,
+    "CurrentStop": "273793",
     "DestinationStop": "300428",
     "StopSequence": 22,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:40+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -1334,12 +1340,12 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:37:12+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "056-FS",
+    "PlateNumb": "KKB-2056",
     "StopUID": "THB307294",
     "StopID": "307294",
     "StopName": {
@@ -1359,20 +1365,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 746,
-    "StopCountDown": 3,
-    "CurrentStop": "139124",
+    "EstimateTime": 352,
+    "StopCountDown": 1,
+    "CurrentStop": "273776",
     "DestinationStop": "300428",
     "StopSequence": 12,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:21:52+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-1713",
     "StopUID": "THB307295",
     "StopID": "307295",
     "StopName": {
@@ -1392,7 +1398,7 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 408,
+    "EstimateTime": 445,
     "StopCountDown": 2,
     "CurrentStop": "310188",
     "DestinationStop": "273770",
@@ -1400,12 +1406,12 @@
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:30:48+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
+    "PlateNumb": "KKB-2670",
     "StopUID": "THB307296",
     "StopID": "307296",
     "StopName": {
@@ -1425,20 +1431,20 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1709,
-    "StopCountDown": 9,
-    "CurrentStop": "310188",
+    "EstimateTime": 751,
+    "StopCountDown": 5,
+    "CurrentStop": "139186",
     "DestinationStop": "273770",
     "StopSequence": 18,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:24:41+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:08+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "056-FS",
+    "PlateNumb": "KKB-1715",
     "StopUID": "THB310188",
     "StopID": "310188",
     "StopName": {
@@ -1458,20 +1464,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 3391,
-    "StopCountDown": 6,
-    "CurrentStop": "139124",
+    "EstimateTime": 59,
+    "StopCountDown": 1,
+    "CurrentStop": "273768",
     "DestinationStop": "300428",
     "StopSequence": 15,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:21:52+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
-    "PlateNumb": "KKB-2059",
+    "PlateNumb": "KKB-2669",
     "StopUID": "THB310188",
     "StopID": "310188",
     "StopName": {
@@ -1491,17 +1497,17 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 2490,
-    "StopCountDown": 3,
-    "CurrentStop": "273794",
+    "EstimateTime": 1006,
+    "StopCountDown": 2,
+    "CurrentStop": "273769",
     "DestinationStop": "273770",
     "StopSequence": 9,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:21:43+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:36:47+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -1531,8 +1537,8 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T12:25:20+08:00",
-    "SrcTransTime": "2026-04-10T12:25:22+08:00",
-    "UpdateTime": "2026-04-10T12:25:28+08:00"
+    "DataTime": "2026-04-10T18:37:12+08:00",
+    "SrcTransTime": "2026-04-10T18:37:15+08:00",
+    "UpdateTime": "2026-04-10T18:37:18+08:00"
   }
 ]

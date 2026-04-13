@@ -27,9 +27,9 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -59,12 +59,12 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "KKB-2058",
+    "PlateNumb": "KKB-1715",
     "StopUID": "THB214780",
     "StopID": "214780",
     "StopName": {
@@ -84,7 +84,7 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 796,
+    "EstimateTime": 1207,
     "StopCountDown": 3,
     "CurrentStop": "310188",
     "DestinationStop": "300428",
@@ -92,12 +92,12 @@
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:32:40+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:56:49+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "-1",
+    "PlateNumb": "KKB-2059",
     "StopUID": "THB273761",
     "StopID": "273761",
     "StopName": {
@@ -117,16 +117,17 @@
       "En": "1728"
     },
     "Direction": 1,
-    "StopCountDown": 0,
-    "CurrentStop": "-1",
+    "EstimateTime": 59,
+    "StopCountDown": 1,
+    "CurrentStop": "300427",
     "DestinationStop": "273770",
     "StopSequence": 5,
-    "StopStatus": 1,
+    "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:55:48+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -156,12 +157,45 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "KKB-1715",
+    "PlateNumb": "KKB-2057",
+    "StopUID": "THB273765",
+    "StopID": "273765",
+    "StopName": {
+      "Zh_tw": "捷運大坪林站",
+      "En": "MRT Dapinglin Station"
+    },
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "EstimateTime": 821,
+    "StopCountDown": 3,
+    "CurrentStop": "310188",
+    "DestinationStop": "273770",
+    "StopSequence": 12,
+    "StopStatus": 0,
+    "MessageType": 2,
+    "IsLastBus": false,
+    "DataTime": "2026-04-10T18:49:47+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2055",
     "StopUID": "THB273768",
     "StopID": "273768",
     "StopName": {
@@ -181,20 +215,53 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 2224,
-    "StopCountDown": 3,
-    "CurrentStop": "273776",
+    "EstimateTime": 153,
+    "StopCountDown": 1,
+    "CurrentStop": "273785",
     "DestinationStop": "300428",
     "StopSequence": 14,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:30:41+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:56:49+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "KKB-2058",
+    "PlateNumb": "KKB-2059",
+    "StopUID": "THB273768",
+    "StopID": "273768",
+    "StopName": {
+      "Zh_tw": "大昌健行路口",
+      "En": "Dachang Jianxing intersection"
+    },
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "EstimateTime": 3045,
+    "StopCountDown": 4,
+    "CurrentStop": "300427",
+    "DestinationStop": "273770",
+    "StopSequence": 8,
+    "StopStatus": 0,
+    "MessageType": 2,
+    "IsLastBus": false,
+    "DataTime": "2026-04-10T18:53:57+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
+  },
+  {
+    "PlateNumb": "KKB-1715",
     "StopUID": "THB273769",
     "StopID": "273769",
     "StopName": {
@@ -214,7 +281,7 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 244,
+    "EstimateTime": 636,
     "StopCountDown": 1,
     "CurrentStop": "310188",
     "DestinationStop": "300428",
@@ -222,12 +289,12 @@
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:32:40+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:56:49+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "-1",
+    "PlateNumb": "KKB-2059",
     "StopUID": "THB273769",
     "StopID": "273769",
     "StopName": {
@@ -247,19 +314,53 @@
       "En": "1728"
     },
     "Direction": 1,
-    "StopCountDown": 0,
-    "CurrentStop": "-1",
+    "EstimateTime": 957,
+    "StopCountDown": 3,
+    "CurrentStop": "300427",
     "DestinationStop": "273770",
     "StopSequence": 7,
-    "StopStatus": 1,
+    "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:53:57+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "-1",
+    "PlateNumb": "KKB-2057",
+    "StopUID": "THB273775",
+    "StopID": "273775",
+    "StopName": {
+      "Zh_tw": "中央新村(捷運小碧潭站)",
+      "En": "Zhongyang New Village( MRT Xiaobitan Sta. )"
+    },
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "EstimateTime": 59,
+    "StopCountDown": 1,
+    "CurrentStop": "310188",
+    "DestinationStop": "273770",
+    "StopSequence": 10,
+    "StopStatus": 0,
+    "MessageType": 2,
+    "IsLastBus": false,
+    "DataTime": "2026-04-10T18:50:48+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
+  },
+  {
+    "PlateNumb": "KKB-1692",
     "StopUID": "THB273776",
     "StopID": "273776",
     "StopName": {
@@ -279,19 +380,20 @@
       "En": "1728"
     },
     "Direction": 0,
-    "StopCountDown": 0,
-    "CurrentStop": "-1",
+    "EstimateTime": 171,
+    "StopCountDown": 1,
+    "CurrentStop": "139125",
     "DestinationStop": "300428",
     "StopSequence": 11,
-    "StopStatus": 1,
+    "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:57:09+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "KKB-1715",
+    "PlateNumb": "KKB-1692",
     "StopUID": "THB273785",
     "StopID": "273785",
     "StopName": {
@@ -311,17 +413,17 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 324,
-    "StopCountDown": 2,
-    "CurrentStop": "273776",
+    "EstimateTime": 1047,
+    "StopCountDown": 3,
+    "CurrentStop": "139125",
     "DestinationStop": "300428",
     "StopSequence": 13,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:30:41+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:57:09+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -351,9 +453,9 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -383,12 +485,12 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "KKB-2058",
+    "PlateNumb": "KKB-1715",
     "StopUID": "THB273793",
     "StopID": "273793",
     "StopName": {
@@ -408,7 +510,7 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 892,
+    "EstimateTime": 1318,
     "StopCountDown": 4,
     "CurrentStop": "310188",
     "DestinationStop": "300428",
@@ -416,12 +518,12 @@
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:32:40+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:56:49+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "-1",
+    "PlateNumb": "KKB-2059",
     "StopUID": "THB273794",
     "StopID": "273794",
     "StopName": {
@@ -441,19 +543,20 @@
       "En": "1728"
     },
     "Direction": 1,
-    "StopCountDown": 0,
-    "CurrentStop": "-1",
+    "EstimateTime": 344,
+    "StopCountDown": 2,
+    "CurrentStop": "300427",
     "DestinationStop": "273770",
     "StopSequence": 6,
-    "StopStatus": 1,
+    "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:53:57+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "KKB-2058",
+    "PlateNumb": "KKB-1715",
     "StopUID": "THB273797",
     "StopID": "273797",
     "StopName": {
@@ -473,7 +576,7 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 642,
+    "EstimateTime": 1021,
     "StopCountDown": 2,
     "CurrentStop": "310188",
     "DestinationStop": "300428",
@@ -481,9 +584,9 @@
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:32:40+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:56:49+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -513,9 +616,9 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -545,12 +648,12 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "KKB-2058",
+    "PlateNumb": "KKB-1715",
     "StopUID": "THB273805",
     "StopID": "273805",
     "StopName": {
@@ -570,7 +673,7 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 1171,
+    "EstimateTime": 1719,
     "StopCountDown": 6,
     "CurrentStop": "310188",
     "DestinationStop": "300428",
@@ -578,9 +681,9 @@
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:32:40+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:56:49+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -610,9 +713,9 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -642,9 +745,9 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -674,9 +777,9 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -706,12 +809,12 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "KKB-2058",
+    "PlateNumb": "KKB-1715",
     "StopUID": "THB300425",
     "StopID": "300425",
     "StopName": {
@@ -731,7 +834,7 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 1043,
+    "EstimateTime": 1481,
     "StopCountDown": 5,
     "CurrentStop": "310188",
     "DestinationStop": "300428",
@@ -739,9 +842,9 @@
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:32:40+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:56:49+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -771,12 +874,12 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "KKB-2058",
+    "PlateNumb": "KKB-1715",
     "StopUID": "THB300428",
     "StopID": "300428",
     "StopName": {
@@ -796,7 +899,7 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 1321,
+    "EstimateTime": 1922,
     "StopCountDown": 7,
     "CurrentStop": "310188",
     "DestinationStop": "300428",
@@ -804,9 +907,9 @@
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:32:40+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:56:49+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -836,12 +939,12 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "KKB-1715",
+    "PlateNumb": "KKB-1692",
     "StopUID": "THB307294",
     "StopID": "307294",
     "StopName": {
@@ -861,20 +964,53 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 59,
-    "StopCountDown": 1,
-    "CurrentStop": "273776",
+    "EstimateTime": 755,
+    "StopCountDown": 2,
+    "CurrentStop": "139125",
     "DestinationStop": "300428",
     "StopSequence": 12,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:32:40+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:57:09+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "KKB-1715",
+    "PlateNumb": "KKB-2057",
+    "StopUID": "THB307295",
+    "StopID": "307295",
+    "StopName": {
+      "Zh_tw": "花開富貴",
+      "En": "Huakai fugui"
+    },
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "EstimateTime": 399,
+    "StopCountDown": 2,
+    "CurrentStop": "310188",
+    "DestinationStop": "273770",
+    "StopSequence": 11,
+    "StopStatus": 0,
+    "MessageType": 2,
+    "IsLastBus": false,
+    "DataTime": "2026-04-10T18:49:47+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2055",
     "StopUID": "THB310188",
     "StopID": "310188",
     "StopName": {
@@ -894,17 +1030,50 @@
       "En": "1728"
     },
     "Direction": 0,
-    "EstimateTime": 2681,
-    "StopCountDown": 4,
-    "CurrentStop": "273776",
+    "EstimateTime": 736,
+    "StopCountDown": 2,
+    "CurrentStop": "273785",
     "DestinationStop": "300428",
     "StopSequence": 15,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:30:41+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:56:49+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
+  },
+  {
+    "PlateNumb": "058-FS",
+    "StopUID": "THB310188",
+    "StopID": "310188",
+    "StopName": {
+      "Zh_tw": "龍潭運動公園",
+      "En": "Longtan Sport Park"
+    },
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "EstimateTime": 415,
+    "StopCountDown": 1,
+    "CurrentStop": "273768",
+    "DestinationStop": "273770",
+    "StopSequence": 9,
+    "StopStatus": 0,
+    "MessageType": 2,
+    "IsLastBus": false,
+    "DataTime": "2026-04-10T18:57:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
     "PlateNumb": "-1",
@@ -934,309 +1103,12 @@
     "StopStatus": 1,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:33:04+08:00",
-    "SrcTransTime": "2026-04-10T11:33:06+08:00",
-    "UpdateTime": "2026-04-10T11:33:08+08:00"
+    "DataTime": "2026-04-10T18:58:00+08:00",
+    "SrcTransTime": "2026-04-10T18:58:02+08:00",
+    "UpdateTime": "2026-04-10T18:58:08+08:00"
   },
   {
-    "PlateNumb": "KKB-2056",
-    "StopUID": "THB273770",
-    "StopID": "273770",
-    "StopName": {
-      "Zh_tw": "仁愛敦化路口(圓環)",
-      "En": "Renai &amp; Dunhua Intersection (Circle)"
-    },
-    "RouteUID": "THB1728",
-    "RouteID": "1728",
-    "RouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "SubRouteUID": "THB172802",
-    "SubRouteID": "172802",
-    "SubRouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "Direction": 1,
-    "EstimateTime": 2706,
-    "StopCountDown": 16,
-    "CurrentStop": "310188",
-    "DestinationStop": "273770",
-    "StopSequence": 25,
-    "StopStatus": 0,
-    "MessageType": 2,
-    "IsLastBus": false,
-    "DataTime": "2026-04-10T11:30:42+08:00",
-    "SrcTransTime": "2026-04-10T11:32:05+08:00",
-    "UpdateTime": "2026-04-10T11:32:08+08:00"
-  },
-  {
-    "PlateNumb": "KKB-2056",
-    "StopUID": "THB273777",
-    "StopID": "273777",
-    "StopName": {
-      "Zh_tw": "仁愛大安路口(仁愛醫院)",
-      "En": "Renai and Daan Road Intersection(Renai Hospital)"
-    },
-    "RouteUID": "THB1728",
-    "RouteID": "1728",
-    "RouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "SubRouteUID": "THB172802",
-    "SubRouteID": "172802",
-    "SubRouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "Direction": 1,
-    "EstimateTime": 2646,
-    "StopCountDown": 15,
-    "CurrentStop": "310188",
-    "DestinationStop": "273770",
-    "StopSequence": 24,
-    "StopStatus": 0,
-    "MessageType": 2,
-    "IsLastBus": false,
-    "DataTime": "2026-04-10T11:30:42+08:00",
-    "SrcTransTime": "2026-04-10T11:32:05+08:00",
-    "UpdateTime": "2026-04-10T11:32:08+08:00"
-  },
-  {
-    "PlateNumb": "KKB-2056",
-    "StopUID": "THB273787",
-    "StopID": "273787",
-    "StopName": {
-      "Zh_tw": "仁愛建國路口一",
-      "En": "Ren-ai Jianguo Road Intersection (I)"
-    },
-    "RouteUID": "THB1728",
-    "RouteID": "1728",
-    "RouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "SubRouteUID": "THB172802",
-    "SubRouteID": "172802",
-    "SubRouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "Direction": 1,
-    "EstimateTime": 2472,
-    "StopCountDown": 13,
-    "CurrentStop": "310188",
-    "DestinationStop": "273770",
-    "StopSequence": 22,
-    "StopStatus": 0,
-    "MessageType": 2,
-    "IsLastBus": false,
-    "DataTime": "2026-04-10T11:30:42+08:00",
-    "SrcTransTime": "2026-04-10T11:32:05+08:00",
-    "UpdateTime": "2026-04-10T11:32:08+08:00"
-  },
-  {
-    "PlateNumb": "KKB-2056",
-    "StopUID": "THB273798",
-    "StopID": "273798",
-    "StopName": {
-      "Zh_tw": "仁愛建國路口二",
-      "En": "Ren-ai Jianguo Road Intersection (II)"
-    },
-    "RouteUID": "THB1728",
-    "RouteID": "1728",
-    "RouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "SubRouteUID": "THB172802",
-    "SubRouteID": "172802",
-    "SubRouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "Direction": 1,
-    "EstimateTime": 2554,
-    "StopCountDown": 14,
-    "CurrentStop": "310188",
-    "DestinationStop": "273770",
-    "StopSequence": 23,
-    "StopStatus": 0,
-    "MessageType": 2,
-    "IsLastBus": false,
-    "DataTime": "2026-04-10T11:30:42+08:00",
-    "SrcTransTime": "2026-04-10T11:32:05+08:00",
-    "UpdateTime": "2026-04-10T11:32:08+08:00"
-  },
-  {
-    "PlateNumb": "KKB-2056",
-    "StopUID": "THB273800",
-    "StopID": "273800",
-    "StopName": {
-      "Zh_tw": "臺大",
-      "En": "National Taiwan Universty"
-    },
-    "RouteUID": "THB1728",
-    "RouteID": "1728",
-    "RouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "SubRouteUID": "THB172802",
-    "SubRouteID": "172802",
-    "SubRouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "Direction": 1,
-    "EstimateTime": 1817,
-    "StopCountDown": 8,
-    "CurrentStop": "310188",
-    "DestinationStop": "273770",
-    "StopSequence": 17,
-    "StopStatus": 0,
-    "MessageType": 2,
-    "IsLastBus": false,
-    "DataTime": "2026-04-10T11:30:42+08:00",
-    "SrcTransTime": "2026-04-10T11:32:05+08:00",
-    "UpdateTime": "2026-04-10T11:32:08+08:00"
-  },
-  {
-    "PlateNumb": "KKB-2056",
-    "StopUID": "THB273801",
-    "StopID": "273801",
-    "StopName": {
-      "Zh_tw": "幸安國小",
-      "En": "Xingan Elementary School"
-    },
-    "RouteUID": "THB1728",
-    "RouteID": "1728",
-    "RouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "SubRouteUID": "THB172802",
-    "SubRouteID": "172802",
-    "SubRouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "Direction": 1,
-    "EstimateTime": 2412,
-    "StopCountDown": 12,
-    "CurrentStop": "310188",
-    "DestinationStop": "273770",
-    "StopSequence": 21,
-    "StopStatus": 0,
-    "MessageType": 2,
-    "IsLastBus": false,
-    "DataTime": "2026-04-10T11:30:42+08:00",
-    "SrcTransTime": "2026-04-10T11:32:05+08:00",
-    "UpdateTime": "2026-04-10T11:32:08+08:00"
-  },
-  {
-    "PlateNumb": "KKB-2056",
-    "StopUID": "THB273802",
-    "StopID": "273802",
-    "StopName": {
-      "Zh_tw": "金華新生路口",
-      "En": "Jinhua and Xinsheng Intersection"
-    },
-    "RouteUID": "THB1728",
-    "RouteID": "1728",
-    "RouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "SubRouteUID": "THB172802",
-    "SubRouteID": "172802",
-    "SubRouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "Direction": 1,
-    "EstimateTime": 2178,
-    "StopCountDown": 10,
-    "CurrentStop": "310188",
-    "DestinationStop": "273770",
-    "StopSequence": 19,
-    "StopStatus": 0,
-    "MessageType": 2,
-    "IsLastBus": false,
-    "DataTime": "2026-04-10T11:30:42+08:00",
-    "SrcTransTime": "2026-04-10T11:32:05+08:00",
-    "UpdateTime": "2026-04-10T11:32:08+08:00"
-  },
-  {
-    "PlateNumb": "KKB-2056",
-    "StopUID": "THB285644",
-    "StopID": "285644",
-    "StopName": {
-      "Zh_tw": "信義新生路口",
-      "En": "Xinyi Xinsheng Road Intersection"
-    },
-    "RouteUID": "THB1728",
-    "RouteID": "1728",
-    "RouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "SubRouteUID": "THB172802",
-    "SubRouteID": "172802",
-    "SubRouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "Direction": 1,
-    "EstimateTime": 2246,
-    "StopCountDown": 11,
-    "CurrentStop": "310188",
-    "DestinationStop": "273770",
-    "StopSequence": 20,
-    "StopStatus": 0,
-    "MessageType": 2,
-    "IsLastBus": false,
-    "DataTime": "2026-04-10T11:30:42+08:00",
-    "SrcTransTime": "2026-04-10T11:32:05+08:00",
-    "UpdateTime": "2026-04-10T11:32:08+08:00"
-  },
-  {
-    "PlateNumb": "KKB-2056",
-    "StopUID": "THB307296",
-    "StopID": "307296",
-    "StopName": {
-      "Zh_tw": "龍安國小(公務人力發展學院)",
-      "En": "Longan Elementary School (Civil Service Development lnst. )"
-    },
-    "RouteUID": "THB1728",
-    "RouteID": "1728",
-    "RouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "SubRouteUID": "THB172802",
-    "SubRouteID": "172802",
-    "SubRouteName": {
-      "Zh_tw": "1728",
-      "En": "1728"
-    },
-    "Direction": 1,
-    "EstimateTime": 1986,
-    "StopCountDown": 9,
-    "CurrentStop": "310188",
-    "DestinationStop": "273770",
-    "StopSequence": 18,
-    "StopStatus": 0,
-    "MessageType": 2,
-    "IsLastBus": false,
-    "DataTime": "2026-04-10T11:30:42+08:00",
-    "SrcTransTime": "2026-04-10T11:32:05+08:00",
-    "UpdateTime": "2026-04-10T11:32:08+08:00"
-  },
-  {
-    "PlateNumb": "KKB-2056",
+    "PlateNumb": "KKB-1713",
     "StopUID": "THB139186",
     "StopID": "139186",
     "StopName": {
@@ -1256,20 +1128,20 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1472,
-    "StopCountDown": 4,
-    "CurrentStop": "310188",
+    "EstimateTime": 59,
+    "StopCountDown": 1,
+    "CurrentStop": "273765",
     "DestinationStop": "273770",
     "StopSequence": 13,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:24:41+08:00",
-    "SrcTransTime": "2026-04-10T11:26:30+08:00",
-    "UpdateTime": "2026-04-10T11:26:33+08:00"
+    "DataTime": "2026-04-10T18:53:47+08:00",
+    "SrcTransTime": "2026-04-10T18:56:01+08:00",
+    "UpdateTime": "2026-04-10T18:56:03+08:00"
   },
   {
-    "PlateNumb": "KKB-2056",
+    "PlateNumb": "KKB-1713",
     "StopUID": "THB139187",
     "StopID": "139187",
     "StopName": {
@@ -1289,20 +1161,20 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1690,
-    "StopCountDown": 5,
-    "CurrentStop": "310188",
+    "EstimateTime": 291,
+    "StopCountDown": 2,
+    "CurrentStop": "273765",
     "DestinationStop": "273770",
     "StopSequence": 14,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:24:41+08:00",
-    "SrcTransTime": "2026-04-10T11:26:30+08:00",
-    "UpdateTime": "2026-04-10T11:26:33+08:00"
+    "DataTime": "2026-04-10T18:52:47+08:00",
+    "SrcTransTime": "2026-04-10T18:56:01+08:00",
+    "UpdateTime": "2026-04-10T18:56:03+08:00"
   },
   {
-    "PlateNumb": "KKB-2056",
+    "PlateNumb": "KKB-1713",
     "StopUID": "THB254217",
     "StopID": "254217",
     "StopName": {
@@ -1322,20 +1194,20 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1828,
-    "StopCountDown": 6,
-    "CurrentStop": "310188",
+    "EstimateTime": 483,
+    "StopCountDown": 3,
+    "CurrentStop": "273765",
     "DestinationStop": "273770",
     "StopSequence": 15,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:24:41+08:00",
-    "SrcTransTime": "2026-04-10T11:26:30+08:00",
-    "UpdateTime": "2026-04-10T11:26:33+08:00"
+    "DataTime": "2026-04-10T18:52:47+08:00",
+    "SrcTransTime": "2026-04-10T18:56:01+08:00",
+    "UpdateTime": "2026-04-10T18:56:03+08:00"
   },
   {
-    "PlateNumb": "KKB-2056",
+    "PlateNumb": "KKB-1713",
     "StopUID": "THB257528",
     "StopID": "257528",
     "StopName": {
@@ -1355,25 +1227,25 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1948,
-    "StopCountDown": 7,
-    "CurrentStop": "310188",
+    "EstimateTime": 608,
+    "StopCountDown": 4,
+    "CurrentStop": "273765",
     "DestinationStop": "273770",
     "StopSequence": 16,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:24:41+08:00",
-    "SrcTransTime": "2026-04-10T11:26:30+08:00",
-    "UpdateTime": "2026-04-10T11:26:33+08:00"
+    "DataTime": "2026-04-10T18:52:47+08:00",
+    "SrcTransTime": "2026-04-10T18:56:01+08:00",
+    "UpdateTime": "2026-04-10T18:56:03+08:00"
   },
   {
-    "PlateNumb": "KKB-2056",
-    "StopUID": "THB273765",
-    "StopID": "273765",
+    "PlateNumb": "KKB-2670",
+    "StopUID": "THB273770",
+    "StopID": "273770",
     "StopName": {
-      "Zh_tw": "捷運大坪林站",
-      "En": "MRT Dapinglin Station"
+      "Zh_tw": "仁愛敦化路口(圓環)",
+      "En": "Renai &amp; Dunhua Intersection (Circle)"
     },
     "RouteUID": "THB1728",
     "RouteID": "1728",
@@ -1388,25 +1260,124 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1289,
+    "EstimateTime": 335,
+    "StopCountDown": 5,
+    "CurrentStop": "285644",
+    "DestinationStop": "273770",
+    "StopSequence": 25,
+    "StopStatus": 0,
+    "MessageType": 2,
+    "IsLastBus": false,
+    "DataTime": "2026-04-10T18:55:20+08:00",
+    "SrcTransTime": "2026-04-10T18:56:01+08:00",
+    "UpdateTime": "2026-04-10T18:56:03+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2670",
+    "StopUID": "THB273777",
+    "StopID": "273777",
+    "StopName": {
+      "Zh_tw": "仁愛大安路口(仁愛醫院)",
+      "En": "Renai and Daan Road Intersection(Renai Hospital)"
+    },
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "EstimateTime": 278,
+    "StopCountDown": 4,
+    "CurrentStop": "285644",
+    "DestinationStop": "273770",
+    "StopSequence": 24,
+    "StopStatus": 0,
+    "MessageType": 2,
+    "IsLastBus": false,
+    "DataTime": "2026-04-10T18:55:20+08:00",
+    "SrcTransTime": "2026-04-10T18:56:01+08:00",
+    "UpdateTime": "2026-04-10T18:56:03+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2670",
+    "StopUID": "THB273787",
+    "StopID": "273787",
+    "StopName": {
+      "Zh_tw": "仁愛建國路口一",
+      "En": "Ren-ai Jianguo Road Intersection (I)"
+    },
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "EstimateTime": 123,
+    "StopCountDown": 2,
+    "CurrentStop": "285644",
+    "DestinationStop": "273770",
+    "StopSequence": 22,
+    "StopStatus": 0,
+    "MessageType": 2,
+    "IsLastBus": false,
+    "DataTime": "2026-04-10T18:55:20+08:00",
+    "SrcTransTime": "2026-04-10T18:56:01+08:00",
+    "UpdateTime": "2026-04-10T18:56:03+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2670",
+    "StopUID": "THB273798",
+    "StopID": "273798",
+    "StopName": {
+      "Zh_tw": "仁愛建國路口二",
+      "En": "Ren-ai Jianguo Road Intersection (II)"
+    },
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "EstimateTime": 169,
     "StopCountDown": 3,
-    "CurrentStop": "310188",
+    "CurrentStop": "285644",
     "DestinationStop": "273770",
-    "StopSequence": 12,
+    "StopSequence": 23,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:24:41+08:00",
-    "SrcTransTime": "2026-04-10T11:26:30+08:00",
-    "UpdateTime": "2026-04-10T11:26:33+08:00"
+    "DataTime": "2026-04-10T18:55:20+08:00",
+    "SrcTransTime": "2026-04-10T18:56:01+08:00",
+    "UpdateTime": "2026-04-10T18:56:03+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
-    "StopUID": "THB273768",
-    "StopID": "273768",
+    "PlateNumb": "KKB-1713",
+    "StopUID": "THB273800",
+    "StopID": "273800",
     "StopName": {
-      "Zh_tw": "大昌健行路口",
-      "En": "Dachang Jianxing intersection"
+      "Zh_tw": "臺大",
+      "En": "National Taiwan Universty"
     },
     "RouteUID": "THB1728",
     "RouteID": "1728",
@@ -1421,25 +1392,58 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1338,
+    "EstimateTime": 794,
+    "StopCountDown": 5,
+    "CurrentStop": "273765",
+    "DestinationStop": "273770",
+    "StopSequence": 17,
+    "StopStatus": 0,
+    "MessageType": 2,
+    "IsLastBus": false,
+    "DataTime": "2026-04-10T18:52:47+08:00",
+    "SrcTransTime": "2026-04-10T18:56:01+08:00",
+    "UpdateTime": "2026-04-10T18:56:03+08:00"
+  },
+  {
+    "PlateNumb": "KKB-2670",
+    "StopUID": "THB273801",
+    "StopID": "273801",
+    "StopName": {
+      "Zh_tw": "幸安國小",
+      "En": "Xingan Elementary School"
+    },
+    "RouteUID": "THB1728",
+    "RouteID": "1728",
+    "RouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "SubRouteUID": "THB172802",
+    "SubRouteID": "172802",
+    "SubRouteName": {
+      "Zh_tw": "1728",
+      "En": "1728"
+    },
+    "Direction": 1,
+    "EstimateTime": 76,
     "StopCountDown": 1,
-    "CurrentStop": "273769",
+    "CurrentStop": "285644",
     "DestinationStop": "273770",
-    "StopSequence": 8,
+    "StopSequence": 21,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:24:41+08:00",
-    "SrcTransTime": "2026-04-10T11:26:30+08:00",
-    "UpdateTime": "2026-04-10T11:26:33+08:00"
+    "DataTime": "2026-04-10T18:55:20+08:00",
+    "SrcTransTime": "2026-04-10T18:56:01+08:00",
+    "UpdateTime": "2026-04-10T18:56:03+08:00"
   },
   {
-    "PlateNumb": "KKB-2056",
-    "StopUID": "THB273775",
-    "StopID": "273775",
+    "PlateNumb": "KKB-1713",
+    "StopUID": "THB273802",
+    "StopID": "273802",
     "StopName": {
-      "Zh_tw": "中央新村(捷運小碧潭站)",
-      "En": "Zhongyang New Village( MRT Xiaobitan Sta. )"
+      "Zh_tw": "金華新生路口",
+      "En": "Jinhua and Xinsheng Intersection"
     },
     "RouteUID": "THB1728",
     "RouteID": "1728",
@@ -1454,25 +1458,25 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 692,
-    "StopCountDown": 1,
-    "CurrentStop": "310188",
+    "EstimateTime": 1096,
+    "StopCountDown": 7,
+    "CurrentStop": "273765",
     "DestinationStop": "273770",
-    "StopSequence": 10,
+    "StopSequence": 19,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:24:41+08:00",
-    "SrcTransTime": "2026-04-10T11:26:30+08:00",
-    "UpdateTime": "2026-04-10T11:26:33+08:00"
+    "DataTime": "2026-04-10T18:52:47+08:00",
+    "SrcTransTime": "2026-04-10T18:56:01+08:00",
+    "UpdateTime": "2026-04-10T18:56:03+08:00"
   },
   {
-    "PlateNumb": "KKB-2056",
-    "StopUID": "THB307295",
-    "StopID": "307295",
+    "PlateNumb": "KKB-1713",
+    "StopUID": "THB285644",
+    "StopID": "285644",
     "StopName": {
-      "Zh_tw": "花開富貴",
-      "En": "Huakai fugui"
+      "Zh_tw": "信義新生路口",
+      "En": "Xinyi Xinsheng Road Intersection"
     },
     "RouteUID": "THB1728",
     "RouteID": "1728",
@@ -1487,25 +1491,25 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 981,
-    "StopCountDown": 2,
-    "CurrentStop": "310188",
+    "EstimateTime": 1140,
+    "StopCountDown": 8,
+    "CurrentStop": "273765",
     "DestinationStop": "273770",
-    "StopSequence": 11,
+    "StopSequence": 20,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:24:41+08:00",
-    "SrcTransTime": "2026-04-10T11:26:30+08:00",
-    "UpdateTime": "2026-04-10T11:26:33+08:00"
+    "DataTime": "2026-04-10T18:52:47+08:00",
+    "SrcTransTime": "2026-04-10T18:56:01+08:00",
+    "UpdateTime": "2026-04-10T18:56:03+08:00"
   },
   {
-    "PlateNumb": "KKB-2057",
-    "StopUID": "THB310188",
-    "StopID": "310188",
+    "PlateNumb": "KKB-1713",
+    "StopUID": "THB307296",
+    "StopID": "307296",
     "StopName": {
-      "Zh_tw": "龍潭運動公園",
-      "En": "Longtan Sport Park"
+      "Zh_tw": "龍安國小(公務人力發展學院)",
+      "En": "Longan Elementary School (Civil Service Development lnst. )"
     },
     "RouteUID": "THB1728",
     "RouteID": "1728",
@@ -1520,16 +1524,16 @@
       "En": "1728"
     },
     "Direction": 1,
-    "EstimateTime": 1798,
-    "StopCountDown": 2,
-    "CurrentStop": "273769",
+    "EstimateTime": 900,
+    "StopCountDown": 6,
+    "CurrentStop": "273765",
     "DestinationStop": "273770",
-    "StopSequence": 9,
+    "StopSequence": 18,
     "StopStatus": 0,
     "MessageType": 2,
     "IsLastBus": false,
-    "DataTime": "2026-04-10T11:24:41+08:00",
-    "SrcTransTime": "2026-04-10T11:26:30+08:00",
-    "UpdateTime": "2026-04-10T11:26:33+08:00"
+    "DataTime": "2026-04-10T18:52:47+08:00",
+    "SrcTransTime": "2026-04-10T18:56:01+08:00",
+    "UpdateTime": "2026-04-10T18:56:03+08:00"
   }
 ]
