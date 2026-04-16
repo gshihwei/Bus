@@ -1,31 +1,56 @@
 import os
 import re
-import requests
+import logging
 from flask import Flask, request, abort
 from linebot.v3 import WebhookHandler
 from linebot.v3.exceptions import InvalidSignatureError
 from linebot.v3.messaging import (
     Configuration, ApiClient, MessagingApi,
-    ReplyMessageRequest, TextMessage, FlexMessage, FlexContainer
+    ReplyMessageRequest, TextMessage,
 )
 from linebot.v3.webhooks import MessageEvent, TextMessageContent
 from tdx_client import TDXClient
 from bus_query import parse_query, format_arrival_message
+import notification_store as store
+from scheduler import NotificationScheduler
+
+logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
 
-# LINE Bot credentials
 LINE_CHANNEL_ACCESS_TOKEN = os.environ.get("LINE_CHANNEL_ACCESS_TOKEN", "")
-LINE_CHANNEL_SECRET = os.environ.get("LINE_CHANNEL_SECRET", "")
+LINE_CHANNEL_SECRET       = os.environ.get("LINE_CHANNEL_SECRET", "")
+TDX_CLIENT_ID             = os.environ.get("TDX_CLIENT_ID", "")
+TDX_CLIENT_SECRET         = os.environ.get("TDX_CLIENT_SECRET", "")
 
 configuration = Configuration(access_token=LINE_CHANNEL_ACCESS_TOKEN)
-handler = WebhookHandler(LINE_CHANNEL_SECRET)
+handler       = WebhookHandler(LINE_CHANNEL_SECRET)
+tdx           = TDXClient(TDX_CLIENT_ID, TDX_CLIENT_SECRET)
 
-# TDX credentials
-TDX_CLIENT_ID = os.environ.get("TDX_CLIENT_ID", "")
-TDX_CLIENT_SECRET = os.environ.get("TDX_CLIENT_SECRET", "")
+# 啟動排程器
+scheduler = NotificationScheduler(configuration, tdx, store)
+scheduler.start()
 
-tdx = TDXClient(TDX_CLIENT_ID, TDX_CLIENT_SECRET)
+# 解析「通知 往新竹 1728 花開富貴」，支援可選門檻「通知10 往...」
+NOTIFY_PATTERN = re.compile(
+    r"^通知(\d+)?\s+往\s*(.+?)\s+([^\s]+)\s+(.+)$",
+    re.UNICODE,
+)
+
+
+def parse_notify(text: str):
+    """
+    回傳 (threshold_min, direction, route_name, stop_name) 或 None
+    threshold_min 預設 10
+    """
+    m = NOTIFY_PATTERN.match(text.strip())
+    if not m:
+        return None
+    threshold  = int(m.group(1)) if m.group(1) else 10
+    direction  = m.group(2).strip()
+    route_name = m.group(3).strip()
+    stop_name  = m.group(4).strip().rstrip("站")
+    return threshold, direction, route_name, stop_name
 
 
 @app.route("/", methods=["GET"])
@@ -37,27 +62,83 @@ def health_check():
 def callback():
     signature = request.headers.get("X-Line-Signature", "")
     body = request.get_data(as_text=True)
-
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
         abort(400)
-
     return "OK"
 
 
 @handler.add(MessageEvent, message=TextMessageContent)
 def handle_message(event):
+    user_id      = event.source.user_id
     user_message = event.message.text.strip()
 
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
 
-        # Check for help command
         if user_message in ["help", "說明", "Help", "HELP", "使用說明"]:
             reply = get_help_message()
+
+        elif user_message in ["取消通知", "取消", "cancel"]:
+            count = store.cancel_user_tasks(user_id)
+            reply = TextMessage(
+                text=f"✅ 已取消 {count} 筆通知任務。" if count
+                     else "ℹ️ 目前沒有進行中的通知任務。"
+            )
+
+        elif user_message in ["通知列表", "我的通知"]:
+            tasks = store.list_user_tasks(user_id)
+            if not tasks:
+                reply = TextMessage(text="ℹ️ 目前沒有進行中的通知任務。")
+            else:
+                lines = ["📋 進行中的通知任務：", ""]
+                for t in tasks:
+                    lines.append(
+                        f"🔔 [{t.task_id}] 往{t.direction} {t.route_name} {t.stop_name}站"
+                        f"（剩 {t.threshold_min} 分鐘時通知）"
+                    )
+                reply = TextMessage(text="\n".join(lines))
+
+        elif user_message.startswith("取消") and len(user_message) > 2:
+            # 「取消 abc123」— 取消指定 task_id
+            tid = user_message[2:].strip()
+            store.cancel_task(tid)
+            reply = TextMessage(text=f"✅ 已取消通知任務 [{tid}]。")
+
+        elif user_message.startswith("通知"):
+            parsed = parse_notify(user_message)
+            if parsed:
+                threshold, direction, route_name, stop_name = parsed
+                task = store.add_task(user_id, direction, route_name, stop_name, threshold)
+                reply = TextMessage(
+                    text=(
+                        f"✅ 通知設定成功！\n"
+                        f"━━━━━━━━━━━━━━\n"
+                        f"🚌 {route_name} 路 往{direction}\n"
+                        f"📍 {stop_name}站\n"
+                        f"⏰ 剩餘 {threshold} 分鐘時通知\n"
+                        f"🆔 任務編號：{task.task_id}\n"
+                        f"━━━━━━━━━━━━━━\n"
+                        f"每分鐘自動檢查，到站前 {threshold} 分鐘\n"
+                        f"將主動發送訊息給您。\n"
+                        f"輸入「取消通知」可取消所有任務。"
+                    )
+                )
+            else:
+                reply = TextMessage(
+                    text=(
+                        "❓ 通知格式錯誤\n\n"
+                        "📌 正確格式：\n"
+                        "通知 往[目的地] [路線] [站名]\n\n"
+                        "💡 範例：\n"
+                        "• 通知 往新竹 1728 花開富貴\n"
+                        "• 通知5 往新竹 1728 花開富貴（5分鐘前通知）\n\n"
+                        "預設為到站前 10 分鐘通知。"
+                    )
+                )
+
         else:
-            # Try to parse bus query
             parsed = parse_query(user_message)
             if parsed:
                 direction, route_name, stop_name = parsed
@@ -66,39 +147,27 @@ def handle_message(event):
                 reply = TextMessage(
                     text=(
                         "❓ 無法辨識查詢格式\n\n"
-                        "📌 正確格式：\n"
+                        "📌 查詢格式：\n"
                         "往[目的地] [路線] [站名]\n\n"
-                        "💡 範例：\n"
-                        "• 往新竹 1728 花開富貴\n"
-                        "• 往台北 9 三重國小\n"
-                        "• 往板橋 307 西門\n\n"
+                        "📌 通知格式：\n"
+                        "通知 往[目的地] [路線] [站名]\n\n"
                         "輸入「說明」查看更多幫助"
                     )
                 )
 
         line_bot_api.reply_message(
-            ReplyMessageRequest(
-                reply_token=event.reply_token,
-                messages=[reply]
-            )
+            ReplyMessageRequest(reply_token=event.reply_token, messages=[reply])
         )
 
 
 def query_bus(direction: str, route_name: str, stop_name: str):
-    """Query bus arrival time from TDX API"""
     try:
         result = tdx.get_bus_arrival(route_name, stop_name, direction)
-
         if result is None:
-            return TextMessage(
-                text=f"⚠️ 查無資料\n\n路線 {route_name}、站點「{stop_name}」不存在，請確認資訊是否正確。"
-            )
-
+            return TextMessage(text=f"⚠️ 查無資料\n\n路線 {route_name}、站點「{stop_name}」不存在。")
         if result.get("error"):
             return TextMessage(text=f"❌ 查詢失敗：{result['error']}")
-
         return format_arrival_message(direction, route_name, stop_name, result)
-
     except Exception as e:
         return TextMessage(text=f"❌ 系統錯誤：{str(e)}\n請稍後再試。")
 
@@ -108,23 +177,18 @@ def get_help_message():
         text=(
             "🚌 公車到站查詢機器人\n"
             "━━━━━━━━━━━━━━\n\n"
-            "📌 查詢格式：\n"
-            "往[目的地] [路線] [站名]\n\n"
-            "💡 使用範例：\n"
-            "• 往新竹 1728 花開富貴\n"
-            "• 往台北 9 三重國小\n"
-            "• 往板橋 307 西門站\n"
-            "• 往左營 高鐵快線 左營\n\n"
-            "📊 顯示資訊：\n"
-            "• 即將到站車輛車牌\n"
-            "• 預估到站時間\n"
-            "• 目前所在站點\n"
-            "• 距離站數\n\n"
-            "⏰ 狀態說明：\n"
-            "• 🟢 即將到站 (≤1分鐘)\n"
-            "• 🔵 進站中\n"
-            "• 🟡 X 分鐘後到站\n"
-            "• ⚫ 末班車已過\n\n"
+            "📌 即時查詢：\n"
+            "往[目的地] [路線] [站名]\n"
+            "例：往新竹 1728 花開富貴\n\n"
+            "🔔 到站通知：\n"
+            "通知 往[目的地] [路線] [站名]\n"
+            "例：通知 往新竹 1728 花開富貴\n"
+            "（預設剩10分鐘時通知）\n\n"
+            "通知5 往新竹 1728 花開富貴\n"
+            "（自訂剩5分鐘時通知）\n\n"
+            "📋 管理通知：\n"
+            "• 通知列表 — 查看進行中任務\n"
+            "• 取消通知 — 取消所有任務\n\n"
             "━━━━━━━━━━━━━━\n"
             "資料來源：交通部 TDX 平台"
         )
