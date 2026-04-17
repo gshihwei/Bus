@@ -14,7 +14,11 @@ from bus_query import parse_query, format_arrival_message
 import notification_store as store
 from scheduler import NotificationScheduler
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+)
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
@@ -27,11 +31,31 @@ configuration = Configuration(access_token=LINE_CHANNEL_ACCESS_TOKEN)
 handler       = WebhookHandler(LINE_CHANNEL_SECRET)
 tdx           = TDXClient(TDX_CLIENT_ID, TDX_CLIENT_SECRET)
 
-# 啟動排程器
+# ── 排程器 ──────────────────────────────────────────────────────────────────
+# 用 --preload 模式：module 在 master process import，scheduler 在 master 啟動，
+# fork 出 worker 後 thread 仍存活（--workers 1 確保只有一個 worker）。
 scheduler = NotificationScheduler(configuration, tdx, store)
-scheduler.start()
 
-# 解析「通知 往新竹 1728 花開富貴」，支援可選門檻「通知10 往...」
+def _ensure_scheduler():
+    """確保排程器正在執行，若已死則重啟"""
+    if not (scheduler._thread and scheduler._thread.is_alive()):
+        logger.warning("Scheduler not alive — restarting")
+        scheduler.start()
+
+# 在每次 request 前檢查排程器是否存活（防禦性措施）
+@app.before_request
+def before_request():
+    _ensure_scheduler()
+
+# 啟動排程器（在 module import 時執行，配合 --preload）
+try:
+    scheduler.start()
+    logger.info(f"Scheduler started at import time (PID {os.getpid()})")
+except Exception as e:
+    logger.error(f"Failed to start scheduler: {e}")
+
+# ── 路由 ────────────────────────────────────────────────────────────────────
+
 NOTIFY_PATTERN = re.compile(
     r"^通知(\d+)?\s+往\s*(.+?)\s+([^\s]+)\s+(.+)$",
     re.UNICODE,
@@ -39,10 +63,6 @@ NOTIFY_PATTERN = re.compile(
 
 
 def parse_notify(text: str):
-    """
-    回傳 (threshold_min, direction, route_name, stop_name) 或 None
-    threshold_min 預設 10
-    """
     m = NOTIFY_PATTERN.match(text.strip())
     if not m:
         return None
@@ -60,28 +80,31 @@ def health_check():
 
 @app.route("/debug", methods=["GET"])
 def debug_info():
-    """Debug endpoint: 查看排程器狀態和目前任務清單"""
-    import json, os
+    """查看排程器狀態與任務清單"""
     tasks = store.get_active_tasks()
-    all_tasks = store._tasks  # 含已完成
+    all_tasks = store._tasks
+    alive = scheduler._thread.is_alive() if scheduler._thread else False
+    logger.info(f"[DEBUG] scheduler_alive={alive}, active={len(tasks)}, pid={os.getpid()}")
     return {
-        "scheduler_alive": scheduler._thread.is_alive() if scheduler._thread else False,
-        "active_tasks": len(tasks),
-        "total_tasks": len(all_tasks),
+        "scheduler_alive": alive,
+        "active_tasks":    len(tasks),
+        "total_tasks":     len(all_tasks),
+        "pid":             os.getpid(),
+        "store_file":      store.STORE_FILE,
+        "store_exists":    os.path.exists(store.STORE_FILE),
         "tasks": [
             {
-                "task_id":      t.task_id,
-                "user_id":      t.user_id[:8] + "...",  # 隱藏完整 ID
-                "direction":    t.direction,
-                "route":        t.route_name,
-                "stop":         t.stop_name,
-                "threshold":    t.threshold_min,
-                "fired":        t.fired,
-                "cancelled":    t.cancelled,
+                "task_id":   t.task_id,
+                "user_id":   t.user_id[:8] + "...",
+                "direction": t.direction,
+                "route":     t.route_name,
+                "stop":      t.stop_name,
+                "threshold": t.threshold_min,
+                "fired":     t.fired,
+                "cancelled": t.cancelled,
             }
             for t in all_tasks.values()
         ],
-        "pid": os.getpid(),
     }
 
 
@@ -100,6 +123,7 @@ def callback():
 def handle_message(event):
     user_id      = event.source.user_id
     user_message = event.message.text.strip()
+    logger.info(f"Message from {user_id[:8]}...: {user_message!r}")
 
     with ApiClient(configuration) as api_client:
         line_bot_api = MessagingApi(api_client)
@@ -128,7 +152,6 @@ def handle_message(event):
                 reply = TextMessage(text="\n".join(lines))
 
         elif user_message.startswith("取消") and len(user_message) > 2:
-            # 「取消 abc123」— 取消指定 task_id
             tid = user_message[2:].strip()
             store.cancel_task(tid)
             reply = TextMessage(text=f"✅ 已取消通知任務 [{tid}]。")
@@ -138,6 +161,7 @@ def handle_message(event):
             if parsed:
                 threshold, direction, route_name, stop_name = parsed
                 task = store.add_task(user_id, direction, route_name, stop_name, threshold)
+                logger.info(f"Notify task added: {task.task_id} for {user_id[:8]}...")
                 reply = TextMessage(
                     text=(
                         f"✅ 通知設定成功！\n"
@@ -160,7 +184,7 @@ def handle_message(event):
                         "通知 往[目的地] [路線] [站名]\n\n"
                         "💡 範例：\n"
                         "• 通知 往新竹 1728 花開富貴\n"
-                        "• 通知5 往新竹 1728 花開富貴（5分鐘前通知）\n\n"
+                        "• 通知5 往新竹 1728 花開富貴\n\n"
                         "預設為到站前 10 分鐘通知。"
                     )
                 )
@@ -196,6 +220,7 @@ def query_bus(direction: str, route_name: str, stop_name: str):
             return TextMessage(text=f"❌ 查詢失敗：{result['error']}")
         return format_arrival_message(direction, route_name, stop_name, result)
     except Exception as e:
+        logger.exception(f"query_bus error: {e}")
         return TextMessage(text=f"❌ 系統錯誤：{str(e)}\n請稍後再試。")
 
 

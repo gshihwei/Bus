@@ -11,7 +11,8 @@ import uuid
 from dataclasses import dataclass, asdict, field
 from typing import Optional
 
-STORE_FILE = os.path.join(os.path.dirname(__file__), "notifications.json")
+# 使用 /tmp 確保 Render 環境可寫入
+STORE_FILE = os.environ.get("NOTIFY_STORE_PATH", "/tmp/notifications.json")
 _lock = threading.Lock()
 
 
