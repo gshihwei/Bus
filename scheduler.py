@@ -195,12 +195,16 @@ class NotificationScheduler:
     def _push(self, task, eta_sec: int, plate: str, current_stop: str):
         """透過 LINE Push Message API 發送通知"""
         text = _build_push_text(task, eta_sec, plate, current_stop)
-        with ApiClient(self._config) as api_client:
-            line_bot_api = MessagingApi(api_client)
-            line_bot_api.push_message(
-                PushMessageRequest(
-                    to=task.user_id,
-                    messages=[TextMessage(text=text)],
+        try:
+            with ApiClient(self._config) as api_client:
+                line_bot_api = MessagingApi(api_client)
+                line_bot_api.push_message(
+                    PushMessageRequest(
+                        to=task.user_id,
+                        messages=[TextMessage(text=text)],
+                    )
                 )
-            )
-        logger.info(f"Task {task.task_id}: push sent to {task.user_id[:8]}...")
+            logger.info(f"Task {task.task_id}: push sent to {task.user_id[:8]}...")
+        except Exception as e:
+            logger.error(f"Task {task.task_id}: push FAILED — {e}")
+            raise

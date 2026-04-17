@@ -58,6 +58,33 @@ def health_check():
     return "LINE Bot Bus Query Service is running!", 200
 
 
+@app.route("/debug", methods=["GET"])
+def debug_info():
+    """Debug endpoint: 查看排程器狀態和目前任務清單"""
+    import json, os
+    tasks = store.get_active_tasks()
+    all_tasks = store._tasks  # 含已完成
+    return {
+        "scheduler_alive": scheduler._thread.is_alive() if scheduler._thread else False,
+        "active_tasks": len(tasks),
+        "total_tasks": len(all_tasks),
+        "tasks": [
+            {
+                "task_id":      t.task_id,
+                "user_id":      t.user_id[:8] + "...",  # 隱藏完整 ID
+                "direction":    t.direction,
+                "route":        t.route_name,
+                "stop":         t.stop_name,
+                "threshold":    t.threshold_min,
+                "fired":        t.fired,
+                "cancelled":    t.cancelled,
+            }
+            for t in all_tasks.values()
+        ],
+        "pid": os.getpid(),
+    }
+
+
 @app.route("/callback", methods=["POST"])
 def callback():
     signature = request.headers.get("X-Line-Signature", "")
