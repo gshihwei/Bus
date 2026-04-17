@@ -23,7 +23,7 @@ class NotifyTask:
     direction: str
     route_name: str
     stop_name: str
-    threshold_min: int = 10        # 提前幾分鐘通知
+    threshold_min: int = 15        # 提前幾分鐘通知
     fired: bool = False            # 已發送過通知
     cancelled: bool = False        # 使用者主動取消
 
@@ -58,7 +58,7 @@ def add_task(
     direction: str,
     route_name: str,
     stop_name: str,
-    threshold_min: int = 10,
+    threshold_min: int = 15,
 ) -> NotifyTask:
     """新增一筆通知任務，回傳任務物件"""
     with _lock:
