@@ -160,7 +160,7 @@ def handle_message(event):
             parsed = parse_notify(user_message)
             if parsed:
                 threshold, direction, route_name, stop_name = parsed
-                task = store.add_task(user_id, direction, route_name, stop_name, threshold)
+                task = store.add_task(user_id, direction, route_name, stop_name)
                 logger.info(f"Notify task added: {task.task_id} for {user_id[:8]}...")
                 reply = TextMessage(
                     text=(
@@ -168,11 +168,11 @@ def handle_message(event):
                         f"━━━━━━━━━━━━━━\n"
                         f"🚌 {route_name} 路 往{direction}\n"
                         f"📍 {stop_name}站\n"
-                        f"⏰ 剩餘 {threshold} 分鐘時通知\n"
+                        f"━━━━━━━━━━━━━━\n"
+                        f"🔔 通知時間點：\n"
+                        f"   剩 20 / 15 / 10 / 5 分鐘各通知一次\n"
                         f"🆔 任務編號：{task.task_id}\n"
                         f"━━━━━━━━━━━━━━\n"
-                        f"每分鐘自動檢查，到站前 {threshold} 分鐘\n"
-                        f"將主動發送訊息給您。\n"
                         f"輸入「取消通知」可取消所有任務。"
                     )
                 )
