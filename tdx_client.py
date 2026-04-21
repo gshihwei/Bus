@@ -139,7 +139,10 @@ class TDXClient:
             n1_dir0, n1_dir1, _combined_map, direction_name
         )
 
-        all_n1 = n1_dir0 if direction_value == 0 else n1_dir1
+        # Filter strictly to the chosen direction — TDX API sometimes returns
+        # records from both directions even when filtered by Direction.
+        _raw = n1_dir0 if direction_value == 0 else n1_dir1
+        all_n1 = [r for r in _raw if r.get("Direction") == direction_value]
 
         # Build stopid_to_name ONLY from the chosen direction's N1.
         # CurrentStop values in N1 records are StopIDs from the same direction,
