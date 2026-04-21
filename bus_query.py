@@ -244,3 +244,93 @@ def format_arrival_message(
         footer += f"\n🕑 資料更新：{update_time_str}"
     lines += ["", "━━━━━━━━━━━━━━", footer]
     return TextMessage(text="\n".join(lines))
+
+
+def _get_best_eta_min(result: dict, stop_name: str) -> Optional[float]:
+    """
+    從 get_bus_arrival 的回傳結果，找出最快到達 stop_name 的 ETA（分鐘）。
+    供 app.py 在建立通知任務前使用，決定起始門檻。
+    回傳 None 代表目前無班次資料。
+    """
+    import datetime as _dt
+    from collections import defaultdict
+
+    all_n1          = result.get("all_n1", [])
+    stopid_to_name  = result.get("stopid_to_name", {})
+    direction_value = result.get("direction_value", 0)
+
+    now = _dt.datetime.now(tz=_dt.timezone(_dt.timedelta(hours=8)))
+
+    def age(s: str) -> float:
+        try:
+            dt = _dt.datetime.fromisoformat(s)
+            return (now - dt).total_seconds()
+        except Exception:
+            return 9999.0
+
+    stop_to_seq: dict[str, int] = {}
+    for rec in all_n1:
+        if rec.get("Direction") != direction_value:
+            continue
+        sname = rec.get("StopName", {}).get("Zh_tw", "") if isinstance(rec.get("StopName"), dict) else ""
+        seq   = rec.get("StopSequence")
+        if sname and seq is not None:
+            stop_to_seq[sname] = int(seq)
+    target_seq = stop_to_seq.get(stop_name)
+
+    plate_recs: dict[str, list] = defaultdict(list)
+    for rec in all_n1:
+        if rec.get("Direction") != direction_value:
+            continue
+        p = rec.get("PlateNumb", "-1")
+        if p and p != "-1":
+            plate_recs[p].append(rec)
+
+    best: Optional[int] = None
+
+    for plate, recs in plate_recs.items():
+        fresh = [r for r in recs if age(r.get("DataTime", "")) < STALE_THRESHOLD_SEC]
+        if not fresh:
+            continue
+
+        target_rec = next(
+            (r for r in fresh
+             if (r.get("StopName", {}).get("Zh_tw", "") if isinstance(r.get("StopName"), dict) else "") == stop_name),
+            None,
+        )
+        if target_rec is not None:
+            eta = target_rec.get("EstimateTime")
+            if eta is not None and (best is None or eta < best):
+                best = int(eta)
+            continue
+
+        if target_seq is None:
+            continue
+        seqed = [(stop_to_seq.get(r.get("StopName", {}).get("Zh_tw", "") if isinstance(r.get("StopName"), dict) else ""), r)
+                 for r in fresh]
+        seqed = [(s, r) for s, r in seqed if s is not None]
+        if not seqed:
+            continue
+        max_seq, max_rec = max(seqed, key=lambda x: x[0])
+        if max_seq >= target_seq:
+            continue
+        seqed_s = sorted(seqed, key=lambda x: x[0])
+        per_stop = 180.0
+        if len(seqed_s) >= 2:
+            gaps = [
+                (seqed_s[i][1].get("EstimateTime", 0) - seqed_s[i-1][1].get("EstimateTime", 0))
+                / (seqed_s[i][0] - seqed_s[i-1][0])
+                for i in range(1, len(seqed_s))
+                if seqed_s[i][1].get("EstimateTime") and seqed_s[i-1][1].get("EstimateTime")
+                and seqed_s[i][0] > seqed_s[i-1][0]
+            ]
+            if gaps:
+                per_stop = sum(gaps) / len(gaps)
+        base = max_rec.get("EstimateTime")
+        if not base:
+            continue
+        est = int(base + (target_seq - max_seq) * per_stop)
+        if best is None or est < best:
+            best = est
+
+    return best / 60 if best is not None else None

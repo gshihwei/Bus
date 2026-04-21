@@ -99,7 +99,7 @@ def debug_info():
                 "direction": t.direction,
                 "route":     t.route_name,
                 "stop":      t.stop_name,
-                "threshold": t.threshold_min,
+                "next_threshold": t.next_threshold,
                 "fired":     t.fired,
                 "cancelled": t.cancelled,
             }
@@ -160,8 +160,30 @@ def handle_message(event):
             parsed = parse_notify(user_message)
             if parsed:
                 threshold, direction, route_name, stop_name = parsed
-                task = store.add_task(user_id, direction, route_name, stop_name)
-                logger.info(f"Notify task added: {task.task_id} for {user_id[:8]}...")
+
+                # 查一次當前 ETA，決定從哪個門檻開始通知
+                current_eta_min = None
+                try:
+                    _result = tdx.get_bus_arrival(route_name, stop_name, direction)
+                    if _result and not _result.get("error"):
+                        from bus_query import _get_best_eta_min
+                        current_eta_min = _get_best_eta_min(_result, stop_name)
+                except Exception:
+                    pass
+
+                task = store.add_task(user_id, direction, route_name, stop_name, current_eta_min)
+                logger.info(
+                    f"Notify task added: {task.task_id} for {user_id[:8]}... "
+                    f"(ETA={current_eta_min:.1f}min, start_thr={task.next_threshold}min)"
+                    if current_eta_min else
+                    f"Notify task added: {task.task_id} (ETA unknown, start_thr={task.next_threshold}min)"
+                )
+
+                eta_note = (
+                    f"目前最快班次約 {int(current_eta_min)} 分鐘後到站\n"
+                    f"   將從剩 {task.next_threshold} 分鐘開始通知"
+                    if current_eta_min else "（尚無班次資料，等車輛出發後開始監控）"
+                )
                 reply = TextMessage(
                     text=(
                         f"✅ 通知設定成功！\n"
@@ -169,8 +191,8 @@ def handle_message(event):
                         f"🚌 {route_name} 路 往{direction}\n"
                         f"📍 {stop_name}站\n"
                         f"━━━━━━━━━━━━━━\n"
-                        f"🔔 通知時間點：\n"
-                        f"   剩 20 / 15 / 10 / 5 分鐘各通知一次\n"
+                        f"⏱ {eta_note}\n"
+                        f"🔔 通知節奏：每少 5 分鐘通知一次\n"
                         f"🆔 任務編號：{task.task_id}\n"
                         f"━━━━━━━━━━━━━━\n"
                         f"輸入「取消通知」可取消所有任務。"

@@ -125,21 +125,33 @@ class TDXClient:
         n1_dir0 = self._get_all_n1(route_name, city, 0)
         n1_dir1 = self._get_all_n1(route_name, city, 1)
 
-        # Build unified StopID→StopName from both directions
-        stopid_to_name: dict[str, str] = {}
+        # Resolve direction first (uses DestinationStop from both directions' N1)
+        # Build a temporary combined map just for direction resolution
+        _combined_map: dict[str, str] = {}
         for rec in n1_dir0 + n1_dir1:
+            sid = rec.get("StopID", "")
+            sname_raw = rec.get("StopName", {})
+            sname = sname_raw.get("Zh_tw", "") if isinstance(sname_raw, dict) else str(sname_raw)
+            if sid and sname:
+                _combined_map[sid] = sname
+
+        direction_value = self._resolve_direction_from_n1(
+            n1_dir0, n1_dir1, _combined_map, direction_name
+        )
+
+        all_n1 = n1_dir0 if direction_value == 0 else n1_dir1
+
+        # Build stopid_to_name ONLY from the chosen direction's N1.
+        # CurrentStop values in N1 records are StopIDs from the same direction,
+        # so mixing both directions would produce wrong stop name lookups.
+        stopid_to_name: dict[str, str] = {}
+        for rec in all_n1:
             sid = rec.get("StopID", "")
             sname_raw = rec.get("StopName", {})
             sname = sname_raw.get("Zh_tw", "") if isinstance(sname_raw, dict) else str(sname_raw)
             if sid and sname:
                 stopid_to_name[sid] = sname
 
-        # Resolve direction: find which direction's terminal stop contains direction_name
-        direction_value = self._resolve_direction_from_n1(
-            n1_dir0, n1_dir1, stopid_to_name, direction_name
-        )
-
-        all_n1 = n1_dir0 if direction_value == 0 else n1_dir1
         stop_info = self._get_stop_info(route_name, stop_name, city, direction_value)
 
         return {

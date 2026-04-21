@@ -50,10 +50,36 @@ def _save(tasks: dict[str, "NotifyTask"]):
 _tasks: dict[str, NotifyTask] = _load()
 
 
-def add_task(user_id: str, direction: str, route_name: str, stop_name: str) -> NotifyTask:
-    """新增通知任務，若同一用戶已有相同任務則先移除。"""
+def _pick_start_threshold(current_eta_min: Optional[float]) -> int:
+    """
+    根據目前已知的 ETA（分鐘）決定從哪個門檻開始通知。
+    例：ETA=12 分 → 已過 20/15 分門檻 → 從 10 分開始
+        ETA=8  分 → 已過 20/15/10 分門檻 → 從 5 分開始
+        ETA=None  → 從最大門檻 20 分開始
+    """
+    if current_eta_min is None:
+        return NOTIFY_THRESHOLDS[0]
+    for thr in NOTIFY_THRESHOLDS:
+        if current_eta_min > thr:
+            return thr
+    # ETA 已小於最小門檻（5分），仍從5分開始（讓 scheduler 立即觸發）
+    return NOTIFY_THRESHOLDS[-1]
+
+
+def add_task(
+    user_id: str,
+    direction: str,
+    route_name: str,
+    stop_name: str,
+    current_eta_min: Optional[float] = None,
+) -> NotifyTask:
+    """
+    新增通知任務，若同一用戶已有相同任務則先移除。
+    current_eta_min：建立任務當下查到的最快 ETA（分鐘），
+    用來決定從哪個門檻開始，避免跳過已過的門檻。
+    """
+    start_threshold = _pick_start_threshold(current_eta_min)
     with _lock:
-        # 移除同用戶相同路線/站點的舊任務
         to_remove = [
             tid for tid, t in _tasks.items()
             if t.user_id == user_id
@@ -71,7 +97,7 @@ def add_task(user_id: str, direction: str, route_name: str, stop_name: str) -> N
             direction=direction,
             route_name=route_name,
             stop_name=stop_name,
-            next_threshold=NOTIFY_THRESHOLDS[0],
+            next_threshold=start_threshold,
         )
         _tasks[task.task_id] = task
         _save(_tasks)
