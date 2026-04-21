@@ -140,10 +140,19 @@ def format_arrival_message(
             )
 
             if target_rec is not None:
-                eta_sec     = target_rec.get("EstimateTime")
-                status      = target_rec.get("StopStatus", 0)
+                # Validate: CurrentStop must be BEFORE or AT the target stop.
+                # TDX occasionally returns stale records where CurrentStop has
+                # already passed the target — these must be discarded.
                 current_sid = str(target_rec.get("CurrentStop", ""))
                 current_stop_name = stopid_to_name.get(current_sid, "")
+                if target_seq_num is not None and current_stop_name:
+                    current_stop_seq = stop_to_seq.get(current_stop_name)
+                    if current_stop_seq is not None and current_stop_seq > target_seq_num:
+                        # CurrentStop is past the target → stale record, skip
+                        continue
+
+                eta_sec = target_rec.get("EstimateTime")
+                status  = target_rec.get("StopStatus", 0)
                 if status == 3:
                     vehicles.append({"plate": plate, "eta": 99999, "emoji": "⚫", "label": "末班車已過", "current_stop": current_stop_name})
                 elif status == 1 and eta_sec is None:
@@ -299,6 +308,13 @@ def _get_best_eta_min(result: dict, stop_name: str) -> Optional[float]:
             None,
         )
         if target_rec is not None:
+            # Validate CurrentStop is not past the target stop
+            cur_sid  = str(target_rec.get("CurrentStop", ""))
+            cur_name = stopid_to_name.get(cur_sid, "")
+            if target_seq is not None and cur_name:
+                cur_seq = stop_to_seq.get(cur_name)
+                if cur_seq is not None and cur_seq > target_seq:
+                    continue  # stale record
             eta = target_rec.get("EstimateTime")
             if eta is not None and (best is None or eta < best):
                 best = int(eta)

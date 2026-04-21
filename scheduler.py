@@ -100,12 +100,18 @@ def _find_best_eta(all_n1: list, stopid_to_name: dict, direction_value: int, sto
             None,
         )
         if target_rec is not None:
-            eta = target_rec.get("EstimateTime")
-            if eta is not None:
-                cur = stopid_to_name.get(str(target_rec.get("CurrentStop", "")), "")
-                if best_eta is None or eta < best_eta:
-                    best_eta, best_plate, best_stop = int(eta), plate, cur
-            continue
+                # Validate CurrentStop is not past the target stop
+                current_sid = str(target_rec.get("CurrentStop", ""))
+                cur = stopid_to_name.get(current_sid, "")
+                if target_seq is not None and cur:
+                    cur_seq = stop_to_seq.get(cur)
+                    if cur_seq is not None and cur_seq > target_seq:
+                        continue  # stale — vehicle already passed target
+                eta = target_rec.get("EstimateTime")
+                if eta is not None:
+                    if best_eta is None or eta < best_eta:
+                        best_eta, best_plate, best_stop = int(eta), plate, cur
+                continue
 
         # Fallback：用最遠已知站推估
         if target_seq is None:
