@@ -100,7 +100,6 @@ def debug_info():
                 "route":     t.route_name,
                 "stop":      t.stop_name,
                 "next_threshold": t.next_threshold,
-                "fired":     t.fired,
                 "cancelled": t.cancelled,
             }
             for t in all_tasks.values()
