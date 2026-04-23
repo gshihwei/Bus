@@ -40,13 +40,15 @@ def _eta_label(seconds: int) -> str:
     return f"約 {m} 分鐘後到站"
 
 
-def _build_push_text(task, eta_sec: int, plate: str, current_stop: str, next_threshold: Optional[int]) -> str:
+def _build_push_text(task, eta_sec: int, plate: str, current_stop: str, next_threshold: Optional[int], update_time: str = "") -> str:
     plate_str = f"【{plate}】 " if plate and plate not in ("-1", "-", "") else ""
     cur_str   = f"\n📌 現於 {current_stop}站" if current_stop else ""
     if next_threshold:
         footer = f"下次將於剩 {next_threshold} 分鐘時再通知。"
     else:
         footer = "已是最後提醒，監控結束。"
+
+    update_str = f"\n🕑 資料更新：{update_time}" if update_time else ""
 
     lines = [
         "🔔 到站提醒",
@@ -57,7 +59,7 @@ def _build_push_text(task, eta_sec: int, plate: str, current_stop: str, next_thr
         f"🟡 {plate_str}{_eta_label(eta_sec)}{cur_str}",
         "",
         "━━━━━━━━━━━━━━",
-        footer,
+        footer + update_str,
     ]
     return "\n".join(lines)
 
@@ -148,7 +150,19 @@ def _find_best_eta(all_n1: list, stopid_to_name: dict, direction_value: int, sto
         if best_eta is None or est < best_eta:
             best_eta, best_plate, best_stop = est, plate, cur
 
-    return best_eta, best_plate, best_stop
+    # Extract UpdateTime from the best matching record
+    update_time = ""
+    for rec in all_n1:
+        raw = rec.get("UpdateTime", "")
+        if raw:
+            try:
+                dt = datetime.datetime.fromisoformat(raw)
+                update_time = dt.strftime("%H:%M")
+            except Exception:
+                update_time = raw[11:16] if len(raw) >= 16 else raw
+            break
+
+    return best_eta, best_plate, best_stop, update_time
 
 
 class NotificationScheduler:
@@ -200,7 +214,7 @@ class NotificationScheduler:
         stopid_to_name  = result.get("stopid_to_name", {})
         direction_value = result.get("direction_value", 0)
 
-        best_eta, best_plate, best_stop = _find_best_eta(
+        best_eta, best_plate, best_stop, update_time = _find_best_eta(
             all_n1, stopid_to_name, direction_value, task.stop_name
         )
 
@@ -218,15 +232,15 @@ class NotificationScheduler:
             # 先記錄當前門檻（用於訊息顯示），再推進到下一個門檻
             current_threshold = task.next_threshold
             next_thr = self._store.advance_or_complete(task.task_id)
-            self._push(task, best_eta, best_plate, best_stop, next_thr)
+            self._push(task, best_eta, best_plate, best_stop, next_thr, update_time)
             logger.info(
                 f"Task {task.task_id}: triggered at {current_threshold}min threshold, "
                 f"next={next_thr}min" if next_thr else
                 f"Task {task.task_id}: final notification sent, task deleted"
             )
 
-    def _push(self, task, eta_sec: int, plate: str, current_stop: str, next_threshold: Optional[int]):
-        text = _build_push_text(task, eta_sec, plate, current_stop, next_threshold)
+    def _push(self, task, eta_sec: int, plate: str, current_stop: str, next_threshold: Optional[int], update_time: str = ""):
+        text = _build_push_text(task, eta_sec, plate, current_stop, next_threshold, update_time)
         try:
             with ApiClient(self._config) as api_client:
                 MessagingApi(api_client).push_message(
