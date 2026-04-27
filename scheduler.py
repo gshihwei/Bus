@@ -51,7 +51,7 @@ def _build_push_text(task, eta_sec: int, plate: str, current_stop: str, next_thr
     update_str = f"\n🕑 資料更新：{update_time}" if update_time else ""
 
     lines = [
-        "🔔 到站提醒",
+        f"🔔 {eta_sec // 60} 分鐘到站提醒",
         "━━━━━━━━━━━━━━",
         f"🚌 {task.route_name} 路 往{task.direction}",
         f"📍 {task.stop_name}站",
